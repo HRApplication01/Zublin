@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">ZublinHRApplication</string>
+    <string name="strPendingIdeas">Pending Ideas</string>
+    <string name="strApprovedIdeas">Approved Ideas</string>
+    <string name="strAppName">Besser</string>
+    <string name="strNewIdea">New Idea</string>
+    <string name="strMyIdeas">My Ideas</string>
+    <string name="strGettingInspired">Getting Inspired</string>
 </resources>
