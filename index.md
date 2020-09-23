@@ -19,14 +19,14 @@
                         
                             
                           
-                        <li class = "current_page round"><a href="/">home</a></li>
-                        <li><a href="/TEAM.html">about</a></li>
+                        <li class = "current_page round"><a href="/">HOME</a></li>
+                        <li><a href="/TEAM.html">TEAM</a></li>
                     </ul>
                 </div>
             </div>
             <div class="content span-25 last round">
               <div class="inner prepend-top span-21 push-2 last">
-                <h1>UA Campus Tour App</h1>
+                <h1>BESSER</h1>
 <p>
 ZCR Introduction
 </p>
@@ -47,9 +47,6 @@ What ZCR will offer
 <p>
 Our experience
 </p>
-<p>If you&#39ve got any suggestions, please feel free to
-</p>
-
               </div>
             </div>
             <img class="" id="shadow-bottom" src="/img/shadowbottom.png" />
