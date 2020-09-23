@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <title>ZCR - TEAM</title>
+        <link type="text/css" rel="stylesheet" href="/Zublin/pagescheme/screen.css">
+        <!--[if lt IE 8]><link type="text/css" rel="stylesheet" href="/css/pagescheme/ie.css" media="screen, projection"><![endif]-->
+        <link type="text/css" rel="stylesheet" href="/Zublin/custom.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="navbar prepend-top span-25 append-bottom last">
+                <div class="span-10">
+                    <a href="/">
+                        <img src="/Zublin/logos/ZCR_mit_Weissraum_200mm_breit_RGB_r12_370px.jpg" title="ZCR" id="nav_logo"/>
+                    </a>
+                </div>
+                <div class="right">
+                    <ul id="nav_buttons" class="round">
+                        
+                        
+                            
+                          
+                        <li><a href="/Zublin">HOME</a></li>
+                        <li><a href="/TEAM.html">TEAM</a></li>
+                        <li class = "current_page round"><a href="/PRESENTATIONS.html">TEAM</a></li>
+                        
+                    </ul>
+                </div>
+            </div>
+            <div class="content span-25 last round">
+              <div class="inner prepend-top span-21 push-2 last">
+                <p>We will be the first group of students working on an international project in 10 years.</p>
+<div class="contact_info">
+<ul>
+<li>Christian Childress</li>
+<li>Jason Logerquist</li>
+<li>Kristade Swain</li>
+<li>Aleksandar Zubic</li> 
+</ul>
+</div>
+
+              </div>
+            </div>
+            <img class="" id="shadow-bottom" src="/img/shadowbottom.png" />
+        </div>
+    </body>
+</html>
