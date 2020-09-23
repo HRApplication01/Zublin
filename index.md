@@ -1,10 +1,61 @@
 <html>
-  <head>
-    <title> ZCR - Home</title>
-        <link type="text/css" rel="stylesheet" href="/blueprint-800/screen.css">
-        <!--[if lt IE 8]><link type="text/css" rel="stylesheet" href="/css/blueprint-800/ie.css" media="screen, projection"><![endif]-->
+    <head>
+        <title>ZCR - HOME</title>
+        <link type="text/css" rel="stylesheet" href="/pagescheme/screen.css">
+        <!--[if lt IE 8]><link type="text/css" rel="stylesheet" href="/css/pagescheme/ie.css" media="screen, projection"><![endif]-->
         <link type="text/css" rel="stylesheet" href="/custom.css">
-  </head>
-  <body>
-    <p> Welcome to our page. <p>
- </html>
+    </head>
+    <body>
+        <div class="container">
+            <div class="navbar prepend-top span-25 append-bottom last">
+                <div class="span-10">
+                    <a href="/">
+                        <img src="/logos/ZCR_mit_Weissraum_200mm_breit_RGB_r12_370px.jpg" title="Banana Panic" id="nav_logo"/>
+                    </a>
+                </div>
+                <div class="right">
+                    <ul id="nav_buttons" class="round">
+                        
+                        
+                            
+                          
+                        <li class = "current_page round"><a href="/">home</a></li>
+                        <li><a href="/TEAM.html">about</a></li>
+                        <li><a href="/download.html">download</a></li>
+                        <li><a href="/news.html">news</a></li>
+                        <li><a href="/screenshots.html">screenshots</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="content span-25 last round">
+              <div class="inner prepend-top span-21 push-2 last">
+                <h1>UA Campus Tour App</h1>
+<p>
+ZCR Introduction
+</p>
+<p>
+ZCR Motivation
+</p>
+<h1>Why we do this</h1>
+<p>
+ZCR hopes to achieve
+</p>
+<p>
+What ZCR will offer
+</p>
+<h1>About the company</h1>
+<p>More information.</p>
+<p>A few more words.</p>
+<h1>Database</h1>
+<p>
+Our experience
+</p>
+<p>If you&#39ve got any suggestions, please feel free to
+</p>
+
+              </div>
+            </div>
+            <img class="" id="shadow-bottom" src="/img/shadowbottom.png" />
+        </div>
+    </body>
+</html>
