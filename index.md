@@ -10,7 +10,7 @@
             <div class="navbar prepend-top span-25 append-bottom last">
                 <div class="span-10">
                     <a href="/">
-                        <img src="/logos/ZCR_mit_Weissraum_200mm_breit_RGB_r12_370px.jpg" title="ZCR" id="nav_logo"/>
+                        <img src="Zublin/logos/ZCR_mit_Weissraum_200mm_breit_RGB_r12_370px.jpg" title="ZCR" id="nav_logo"/>
                     </a>
                 </div>
                 <div class="right">
