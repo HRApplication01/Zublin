@@ -10,7 +10,7 @@
             <div class="navbar prepend-top span-25 append-bottom last">
                 <div class="span-10">
                     <a href="/">
-                        <img src="/logos/ZCR_mit_Weissraum_200mm_breit_RGB_r12_370px.jpg" title="Banana Panic" id="nav_logo"/>
+                        <img src="/logos/ZCR_mit_Weissraum_200mm_breit_RGB_r12_370px.jpg" title="ZCR" id="nav_logo"/>
                     </a>
                 </div>
                 <div class="right">
@@ -21,9 +21,6 @@
                           
                         <li class = "current_page round"><a href="/">home</a></li>
                         <li><a href="/TEAM.html">about</a></li>
-                        <li><a href="/download.html">download</a></li>
-                        <li><a href="/news.html">news</a></li>
-                        <li><a href="/screenshots.html">screenshots</a></li>
                     </ul>
                 </div>
             </div>
