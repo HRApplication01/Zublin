@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ZublinHRApplication</string>
+    <string name="app_name">Besser</string>
     <string name="strLogin">Login</string>
     <string name="strRegister">Register</string>
     <string name="strUsername">Username</string>
@@ -11,7 +11,6 @@
     <string name="strThanksForRegistering">Thanks For Registering: Your Account Will Be Approved Soon</string>
     <string name="strPendingIdeas">Pending Ideas</string>
     <string name="strApprovedIdeas">Approved Ideas</string>
-    <string name="strAppName">Besser</string>
     <string name="strNewIdea">New Idea</string>
     <string name="strMyIdeas">My Ideas</string>
     <string name="strGettingInspired">Getting Inspired</string>
