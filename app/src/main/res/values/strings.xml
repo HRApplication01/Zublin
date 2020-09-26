@@ -23,4 +23,7 @@
     <string name="employeeIdeaTitleOfIdea">Title of new idea</string>
     <string name="employeeIdeaLocationSite">Address of the location</string>
     <string name="employeeIdeaTitle">Title</string>
+    <string name="strMyIdea">Create Idea</string>
+    <string name="strInspired">Inspired</string>
+    <string name="strProfile">Profile</string>
 </resources>
