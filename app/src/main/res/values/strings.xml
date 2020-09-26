@@ -14,7 +14,16 @@
     <string name="strNewIdea">New Idea</string>
     <string name="strMyIdeas">My Ideas</string>
     <string name="strGettingInspired">Getting Inspired</string>
-    <string name="strMyIdea">My Idea</string>
-    <string name="strInspired">Getting Inspired</string>
-    <string name="strProfile"><![CDATA[My Profile & Badges]]></string>
+    <string name="employeeIdeaFeasibility">Feasibility</string>
+    <string name="employeeIdeaFeasibility1">Very Easy</string>
+    <string name="employeeIdeaFeasibility2">Easy</string>
+    <string name="employeeIdeaFeasibility3">Neither nor</string>
+    <string name="employeeIdeaFeasibility4">Hard</string>
+    <string name="employeeIdeaFeasibility5">Very Hard</string>
+    <string name="employeeIdeaTitleOfIdea">Title of new idea</string>
+    <string name="employeeIdeaLocationSite">Address of the location</string>
+    <string name="employeeIdeaTitle">Title</string>
+    <string name="strMyIdea">Create Idea</string>
+    <string name="strInspired">Inspired</string>
+    <string name="strProfile">Profile</string>
 </resources>

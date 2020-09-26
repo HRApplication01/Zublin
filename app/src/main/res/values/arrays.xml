@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="employeeIdeaFeasibility">
+        <item>@string/employeeIdeaFeasibility1</item>
+        <item>@string/employeeIdeaFeasibility2</item>
+        <item>@string/employeeIdeaFeasibility3</item>
+        <item>@string/employeeIdeaFeasibility4</item>
+        <item>@string/employeeIdeaFeasibility5</item>
+    </string-array>
+</resources>

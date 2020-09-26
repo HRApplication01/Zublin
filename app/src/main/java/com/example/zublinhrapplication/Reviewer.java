@@ -67,6 +67,5 @@ public class Reviewer extends AppCompatActivity {
                         Toast.makeText(Reviewer.this, "error", Toast.LENGTH_SHORT).show();
                     }
                 });
-
     }
 }
