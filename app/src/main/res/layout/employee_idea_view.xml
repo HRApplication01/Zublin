@@ -22,17 +22,17 @@ android:scrollbars="vertical">
         android:id="@+id/EditTitleOfIdea"
         android:layout_width="266dp"
         android:layout_height="62dp"
+        android:autofillHints="hello"
         android:hint="@string/employeeIdeaTitleOfIdea"
-        android:inputType="textTitleOfIdea"
-        android:autofillHints="hello" />
+        android:inputType="@string/employeeIdeaTitle" />
 
     <EditText
         android:id="@+id/EditIdeaLocation"
         android:layout_width="match_parent"
         android:layout_height="57dp"
+        android:autofillHints="hello"
         android:hint="@string/employeeIdeaLocationSite"
-        android:inputType="textIdeaLocation"
-        android:autofillHints="hello" />
+        android:inputType="@string/employeeIdeaLocationSite" />
 
     <Spinner
         android:id="@+id/SpinnerFeedbackType"
