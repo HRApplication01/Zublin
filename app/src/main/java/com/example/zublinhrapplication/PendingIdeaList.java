@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class PendingIdeaList extends AppCompatActivity {
 
@@ -24,14 +25,13 @@ public class PendingIdeaList extends AppCompatActivity {
         rvPendingIdeas.setLayoutManager(layoutManager);
 
 
-        ArrayList<ShortPendingIdea> ideas = new ArrayList<ShortPendingIdea>();
+        List<ShortPendingIdea> ideas = new ArrayList<ShortPendingIdea>();
         for(int i = 0; i < 20; i++){
-            ideas.add(new ShortPendingIdea("Title", "Short Description", "author"));
+            ideas.add(new ShortPendingIdea("Title"+i, i, "Short Description", "author"));
         }
-        ShortPendingIdea[] ideasArray = new ShortPendingIdea[ideas.size()];
-        ideasArray = ideas.toArray(ideasArray);
-        final PendingIdeaListAdapter pendingIdeas = new PendingIdeaListAdapter(ideasArray);
+        final PendingIdeaListAdapter pendingIdeas = new PendingIdeaListAdapter(ideas);
         rvPendingIdeas.setAdapter(pendingIdeas);
+
 
 
     }
