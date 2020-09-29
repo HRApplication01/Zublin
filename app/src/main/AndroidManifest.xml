@@ -9,12 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity
+            android:name=".PendingIdeaList"
+            android:label="@string/strPendingIdeas"></activity>
         <activity android:name=".ReviewerIdea" />
         <activity android:name=".EmployeeIdea" />
         <activity android:name=".Reviewer" />
         <activity android:name=".Employee" />
         <activity android:name=".UserRegisterLogin" />
-        <activity android:name=".UserLogin" >
+        <activity android:name=".UserLogin">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
