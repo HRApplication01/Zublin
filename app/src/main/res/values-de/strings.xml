@@ -1,4 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">ZublinHRApplication</string>
+    <string name="strLogin">Login</string>
+    <string name="strRegister">Registrieren</string>
+    <string name="strUsername">Nutzername</string>
+    <string name="strPassword">Passwort</string>
+    <string name="strName">Name</string>
+    <string name="strIncorrectPasswordToast">Falsches Passwort: Bitte erneut versuchen</string>
+    <string name="strLoginNotApproved">Ihr Nutzername wurde nicht aktzeptiert: Bitte versuchen Sie es spaeter erneut</string>
+    <string name="strIncorrectAccountRegistration">Ein Account mit Ihrem Namen existiert schon: Bitte versuchen Sie einen anderen Nutzername</string>
+    <string name="strThanksForRegistering">Vielen Danke für Ihre Registrierung: Ihr Account wird bald bestaetigt</string>
+    <string name="strPendingIdeas">Laufende Ideen</string>
+    <string name="strApprovedIdeas">Aktzeptierte Ideen</string>
+    <string name="strNewIdea">Neue Idee</string>
+    <string name="strMyIdeas">Meine Ideen</string>
+    <string name="strGettingInspired">Inspiriert</string>
+    <string name="employeeIdeaFeasibility">Durchfuehrbarkeit</string>
+    <string name="employeeIdeaFeasibility1">Sehr Einfach</string>
+    <string name="employeeIdeaFeasibility2">Einfach</string>
+    <string name="employeeIdeaFeasibility3">Entweder oder</string>
+    <string name="employeeIdeaFeasibility4">Schwer</string>
+    <string name="employeeIdeaFeasibility5">Sehr Schwer</string>
+    <string name="employeeIdeaTitleOfIdea">Titel von neuen Ideen</string>
+    <string name="employeeIdeaLocationSite">Adresse</string>
+    <string name="employeeIdeaTitle">Titel</string>
+    <string name="strMyIdea">Idee erstellen</string>
+    <string name="strInspired">Inspiriert</string>
+    <string name="strProfile">Profil</string>
 </resources>
