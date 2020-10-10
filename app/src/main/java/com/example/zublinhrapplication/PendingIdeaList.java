@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -23,6 +24,9 @@ public class PendingIdeaList extends AppCompatActivity {
 
         final RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         rvPendingIdeas.setLayoutManager(layoutManager);
+
+        final RecyclerView.ItemDecoration itemDecoration = new DividerItemDecoration(this, DividerItemDecoration.VERTICAL);
+        rvPendingIdeas.addItemDecoration(itemDecoration);
 
 
         List<ShortPendingIdea> ideas = new ArrayList<ShortPendingIdea>();

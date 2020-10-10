@@ -42,7 +42,8 @@ public class PendingIdeaListAdapter extends RecyclerView.Adapter<PendingIdeaList
         public void onClick(View view) {
             int position = getAdapterPosition();
             if (position != RecyclerView.NO_POSITION) {
-                Toast.makeText(context, "Title:" + txtTitle.getText(), Toast.LENGTH_SHORT).show();;
+                Toast.makeText(context, "Title:" + txtTitle.getText(), Toast.LENGTH_SHORT).show();
+                //todo Create new view to show the idea
             }
         }
     }
