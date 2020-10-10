@@ -28,7 +28,6 @@ public class PendingIdeaList extends AppCompatActivity {
         final RecyclerView.ItemDecoration itemDecoration = new DividerItemDecoration(this, DividerItemDecoration.VERTICAL);
         rvPendingIdeas.addItemDecoration(itemDecoration);
 
-
         List<ShortPendingIdea> ideas = new ArrayList<ShortPendingIdea>();
         for(int i = 0; i < 20; i++){
             ideas.add(new ShortPendingIdea("Title"+i, i, "Short Description", "author"));
