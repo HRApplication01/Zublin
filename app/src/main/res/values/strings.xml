@@ -26,4 +26,10 @@
     <string name="strMyIdea">Create Idea</string>
     <string name="strInspired">Inspired</string>
     <string name="strProfile">Profile</string>
+    <string name="CreateIdea">Create a New Idea</string>
+    <string name="strIdeaFrom">This Idea is From:</string>
+    <string name="strMyself">Myself</string>
+    <string name="strOther">Other</string>
+    <string name="strTitle">Title:</string>
+    <string name="strIdeaTitle">Title of the New Idea</string>
 </resources>
