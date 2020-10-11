@@ -6,6 +6,7 @@ public class ShortPendingIdea {
     private String ideaTitle;
     private String shortDescription;
 
+    public ShortPendingIdea(){}
 
     public ShortPendingIdea(String ideaTitle, int id, String shortDescription, String author) {
         this.author = author;
@@ -28,5 +29,21 @@ public class ShortPendingIdea {
 
     public String getShortDescription() {
         return shortDescription;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setIdeaTitle(String ideaTitle) {
+        this.ideaTitle = ideaTitle;
+    }
+
+    public void setShortDescription(String shortDescription) {
+        this.shortDescription = shortDescription;
     }
 }
