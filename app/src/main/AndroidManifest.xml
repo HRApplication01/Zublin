@@ -12,6 +12,7 @@
         <activity
             android:name=".PendingIdeaList"
             android:label="@string/strPendingIdeas"></activity>
+        <activity android:name=".ApprovedIdeaList" android:label="Approved Ideas" />
         <activity android:name=".ReviewerIdea" />
         <activity android:name=".EmployeeIdea" />
         <activity android:name=".Reviewer" />

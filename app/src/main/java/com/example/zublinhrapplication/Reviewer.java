@@ -31,7 +31,8 @@ public class Reviewer extends AppCompatActivity {
         btnApprovedIdeas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //todo
+                Intent i = new Intent(v.getContext(), ApprovedIdeaList.class);
+                startActivity(i);
             }
         });
 
