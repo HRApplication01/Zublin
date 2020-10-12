@@ -11,7 +11,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".PendingIdeaList"
-            android:label="@string/strPendingIdeas"></activity>
+            android:label="@string/strPendingIdeas" />
         <activity android:name=".ReviewerIdea" />
         <activity android:name=".EmployeeIdea" />
         <activity android:name=".Reviewer" />
@@ -20,7 +20,6 @@
         <activity android:name=".UserLogin">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
