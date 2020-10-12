@@ -22,7 +22,7 @@ import org.w3c.dom.Text;
 
 public class UserLogin extends AppCompatActivity {
 
-    public static int exists = 0;
+    public static int existsUser = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,21 +32,23 @@ public class UserLogin extends AppCompatActivity {
         //setup buttons
         final Button btnLogin = (Button) findViewById(R.id.btnLogin);
         final Button btnRegister = (Button) findViewById(R.id.btnRegister);
-        //setup text fields
-        final TextView edtUsername = (TextView) findViewById(R.id.edtUsername);
-        final TextView edtPassword = (TextView) findViewById(R.id.edtPassword);
 
         //login button method
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(final View v) {
 
+                //setup text fields
+                final TextView edtUsername = (TextView) findViewById(R.id.edtUsername);
+                final TextView edtPassword = (TextView) findViewById(R.id.edtPassword);
                 //pulls text from fields
                 final String username = edtUsername.getText().toString();
                 final String password = edtPassword.getText().toString();
 
                 //setup firebase instance
                 FirebaseFirestore db = FirebaseFirestore.getInstance();
+                //setup collection reference
+                final CollectionReference applicationUsers = db.collection("applicationUsers");
                 //Checks if username is already use
                 DocumentReference docRef = db.collection("applicationUsers").document(username);
                 docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
@@ -54,51 +56,62 @@ public class UserLogin extends AppCompatActivity {
                     public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                         if (task.isSuccessful()) {
                             DocumentSnapshot document = task.getResult();
+                            assert document != null;
                             if (document.exists()) {
-                                document.getData();
                                 String usernameText = document.getString("username");
                                 String passwordText = document.getString("password");
                                 boolean approved = document.getBoolean("approvedUser");
-                                String accountType = document.getString("accountType");
-                                if (username.equals(usernameText) && password.equals(passwordText) && approved && accountType.equals("0")) {
-                                    exists = 1;
-                                } else if (username.equals(usernameText) && password.equals(passwordText) && approved && accountType.equals("1")) {
-                                    exists = 2;
+                                long accountType = document.getLong("accountType");
+
+                                if (username.equals(usernameText) && password.equals(passwordText) && approved && accountType == 0) {
+                                    existsUser = 1;
+                                } else if (username.equals(usernameText) && password.equals(passwordText) && approved && accountType == 1) {
+                                    existsUser = 2;
                                 } else if (username.equals(usernameText) && password.equals(passwordText) && !approved) {
-                                    exists = 3;
+                                    existsUser = 3;
+                                }
+                                if (existsUser == 1) {
+                                    //switch to Employee page
+                                    Intent switchToEmployee = new Intent(v.getContext(), Employee.class);
+                                    startActivity(switchToEmployee);
+                                    existsUser = 0;
+                                }
+                                else if (existsUser == 2) {
+                                    //switch to Reviewer Page
+                                    Intent switchToReviewer = new Intent(v.getContext(), Reviewer.class);
+                                    startActivity(switchToReviewer);
+                                    existsUser = 0;
+                                }
+                                else if (existsUser == 3) {
+                                    //Inform user that account has not yet been approved by supervisor
+                                    Toast.makeText(v.getContext(), R.string.strLoginNotApproved, 2).show();
+                                    edtUsername.setText("");
+                                    edtPassword.setText("");
+                                    existsUser = 0;
+                                }
+                                else {
+                                    //inform user of incorrect password attempt
+                                    Toast.makeText(v.getContext(), R.string.strIncorrectPasswordToast, 2).show();
+                                    //reset text fields
+                                    edtUsername.setText("");
+                                    edtPassword.setText("");
+                                    existsUser = 0;
                                 }
                             } else {
-                                //System.out.println("No such document");
+                                //else {
+                                    //inform user of incorrect password attempt
+                                    Toast.makeText(v.getContext(), R.string.strIncorrectPasswordToast, 2).show();
+                                    //reset text fields
+                                    edtUsername.setText("");
+                                    edtPassword.setText("");
+                                //}
                             }
                         } else {
                             //System.out.println("get failed with ");
+                            existsUser = 0;
                         }
                     }
                 });
-
-                    if (exists == 1) {
-                    //switch to Employee page
-                    Intent switchToEmployee = new Intent(v.getContext(), Employee.class);
-                    startActivity(switchToEmployee);
-                }
-                else if (exists == 2) {
-                    //switch to Reviewer Page
-                    Intent switchToReviewer = new Intent(v.getContext(), Reviewer.class);
-                    startActivity(switchToReviewer);
-                }
-                else if (exists == 3) {
-                    //Inform user that account has not yet been approved by supervisor
-                    Toast.makeText(v.getContext(), R.string.strLoginNotApproved, 2).show();
-                    edtUsername.setText("");
-                    edtPassword.setText("");
-                }
-                else {
-                    //inform user of incorrect password attempt
-                    Toast.makeText(v.getContext(), R.string.strIncorrectPasswordToast, 2).show();
-                    //reset text fields
-                    edtUsername.setText("");
-                    edtPassword.setText("");
-                }
             }
         });
 

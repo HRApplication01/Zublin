@@ -39,16 +39,16 @@ public class UserRegisterLogin extends AppCompatActivity {
 
         //setup button
         final Button btnRegister = (Button) findViewById(R.id.btnRegister);
-        //setup text fields
-        final TextView edtName = (TextView) findViewById(R.id.edtName);
-        final TextView edtUsername = (TextView) findViewById(R.id.edtUsername);
-        final TextView edtPassword = (TextView) findViewById(R.id.edtPassword);
 
         //login button method
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View v) {
 
+                //setup text fields
+                final TextView edtName = (TextView) findViewById(R.id.edtName);
+                final TextView edtUsername = (TextView) findViewById(R.id.edtUsername);
+                final TextView edtPassword = (TextView) findViewById(R.id.edtPassword);
                 //pulls text from fields
                 final String name = edtName.getText().toString();
                 final String username = edtUsername.getText().toString();
@@ -57,7 +57,7 @@ public class UserRegisterLogin extends AppCompatActivity {
                 //setup database instance
                 FirebaseFirestore db = FirebaseFirestore.getInstance();
                 //setup collection reference
-                CollectionReference applicationUsers = db.collection("applicationUsers");
+                final CollectionReference applicationUsers = db.collection("applicationUsers");
 
                 //Checks if username is already use
                 DocumentReference docRef = db.collection("applicationUsers").document(username);
@@ -69,43 +69,46 @@ public class UserRegisterLogin extends AppCompatActivity {
                             if (document.exists()) {
                                 //System.out.println("DocumentSnapshot data: " + document.getData());
                                 exists = true;
+                                //if the record exists, apoligize and reload the page
+                                if (exists) {
+                                    //Informs user to use another username
+                                    Toast.makeText(v.getContext(), R.string.strIncorrectAccountRegistration, 2).show();
+                                    //resets username text,
+                                    edtUsername.setText("");
+                                    exists = false;
+                                }
+                                else {
+                                    exists = false;
+                                }
                             } else {
                                 //System.out.println("No such document");
+                                //If not used, register the account and redirect to login page
+                                //else {
+                                    // Create a new user with username, password, name
+                                    Map<String, Object> user = new HashMap<>();
+                                    user.put("username", username);
+                                    user.put("password", password);
+                                    user.put("name", name);
+                                    user.put("approvedUser", false);
+                                    user.put("accountType", 0);
+                                    //add user to the database
+                                    applicationUsers.document(username).set(user);
+                                    //how to add with randown documentid
+                                    //applicationUsers.add(user);
+
+                                //Tell user they have to wait for their account to be approved and redirect to login screen
+                                    Toast.makeText(v.getContext(), R.string.strThanksForRegistering, 2).show();
+                                    exists = false;
+                                    //Redirect to login page
+                                    Intent switchToLogin = new Intent(v.getContext(), UserLogin.class);
+                                    startActivity(switchToLogin);
+                                //}
                             }
                         } else {
                             //System.out.println("get failed with ");
                         }
                     }
                 });
-
-                //if the record exists, apoligize and reload the page
-                if (exists) {
-                    //Informs user to use another username
-                    Toast.makeText(v.getContext(), R.string.strIncorrectAccountRegistration, 2).show();
-                    //resets username text,
-                    edtUsername.setText("");
-                }
-
-                //If not used, register the account and redirect to login page
-                else {
-                    // Create a new user with username, password, name
-                    Map<String, Object> user = new HashMap<>();
-                    user.put("username", username);
-                    user.put("password", password);
-                    user.put("name", name);
-                    user.put("approvedUser", false);
-                    user.put("accountType", 0);
-                    //add user to the database
-                    applicationUsers.document(username).set(user);
-                    //how to add with randown documentid
-                    //applicationUsers.add(user);
-
-                    //Tell user they have to wait for their account to be approved and redirect to login screen
-                    Toast.makeText(v.getContext(), R.string.strThanksForRegistering, 2).show();
-                    //Redirect to login page
-                    Intent switchToLogin = new Intent(v.getContext(), UserLogin.class);
-                    startActivity(switchToLogin);
-                }
             }
 
         });
