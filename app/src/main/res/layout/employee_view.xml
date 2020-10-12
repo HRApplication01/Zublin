@@ -12,6 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="64dp"
         android:text="@string/app_name"
+        android:textColor="#c40805"
         android:textSize="36sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,6 +24,7 @@
         android:layout_height="70dp"
         android:layout_marginTop="40dp"
         android:text="@string/strMyIdea"
+        android:background="@drawable/button_shape"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textView" />
@@ -33,6 +35,7 @@
         android:layout_height="70dp"
         android:layout_marginTop="40dp"
         android:text="@string/strInspired"
+        android:background="@drawable/button_shape"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnMyIdea" />
@@ -43,6 +46,7 @@
         android:layout_height="70dp"
         android:layout_marginTop="40dp"
         android:text="@string/strProfile"
+        android:background="@drawable/button_shape"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnInspired" />
