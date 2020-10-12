@@ -67,13 +67,13 @@ public class UserRegisterLogin extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             DocumentSnapshot document = task.getResult();
                             if (document.exists()) {
-                                System.out.println("DocumentSnapshot data: " + document.getData());
+                                //System.out.println("DocumentSnapshot data: " + document.getData());
                                 exists = true;
                             } else {
-                                System.out.println("No such document");
+                                //System.out.println("No such document");
                             }
                         } else {
-                            System.out.println("get failed with ");
+                            //System.out.println("get failed with ");
                         }
                     }
                 });
