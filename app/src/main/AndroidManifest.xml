@@ -9,22 +9,39 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+<!--        Placing name of view in the app bar-->
         <activity
             android:name=".PendingIdeaList"
-            android:label="@string/strPendingIdeas"></activity>
-        <activity android:name=".ApprovedIdeaList" android:label="Approved Ideas" />
-        <activity android:name=".ReviewerIdea" />
-        <activity android:name=".EmployeeIdea" />
-        <activity android:name=".Reviewer" />
-        <activity android:name=".Employee" />
-        <activity android:name=".UserRegisterLogin" />
-        <activity android:name=".UserLogin">
+            android:label="@string/strPendingIdeas"/>
+        <activity
+            android:name=".ApprovedIdeaList"
+            android:label="@string/strApprovedIdeas"/>
+        <activity
+            android:name=".ReviewerIdea"
+            android:label="@string/strReviewerIdeas"/>
+        <activity
+            android:name=".EmployeeIdea"
+            android:label="@string/strEmployeeIdea"/>
+        <activity
+            android:name=".Reviewer"
+            android:label="@string/strAuthorizedReviewer"/>
+        <activity
+            android:name=".Employee"
+            android:label="@string/strValuedEmployee"/>
+        <activity
+            android:name=".UserRegisterLogin"
+            android:label="@string/strUserRegister"/>
+
+<!--        Initial Main Activity Sequence-->
+        <activity
+            android:name=".UserLogin">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
     </application>
 
 </manifest>
