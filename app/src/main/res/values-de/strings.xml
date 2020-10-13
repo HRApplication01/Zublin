@@ -15,16 +15,50 @@
     <string name="strNewIdea">Neue Idee</string>
     <string name="strMyIdeas">Meine Ideen</string>
     <string name="strGettingInspired">Inspiriert</string>
-    <string name="employeeIdeaFeasibility">Durchfuehrbarkeit</string>
-    <string name="employeeIdeaFeasibility1">Sehr Einfach</string>
-    <string name="employeeIdeaFeasibility2">Einfach</string>
-    <string name="employeeIdeaFeasibility3">Entweder oder</string>
-    <string name="employeeIdeaFeasibility4">Schwer</string>
-    <string name="employeeIdeaFeasibility5">Sehr Schwer</string>
-    <string name="employeeIdeaTitleOfIdea">Titel von neuen Ideen</string>
-    <string name="employeeIdeaLocationSite">Adresse</string>
-    <string name="employeeIdeaTitle">Titel</string>
+    <string name="strEmployeeIdeaLocationSite">Adresse</string>
     <string name="strMyIdea">Idee erstellen</string>
     <string name="strInspired">Inspiriert</string>
     <string name="strProfile">Profil</string>
+    <string name="CreateIdea"></string>
+    <string name="strIdeaFrom"></string>
+    <string name="strMyself"></string>
+    <string name="strOther"></string>
+    <string name="strTitle"></string>
+    <string name="strIdeaTitle"></string>
+    <string name="strReviewerIdeas"></string>
+    <string name="strEmployeeIdea"></string>
+    <string name="strAuthorizedReviewer"></string>
+    <string name="strValuedEmployee"></string>
+    <string name="strUserRegister"></string>
+    <string name="strUserLogin"></string>
+    <string name="strLocationSite"></string>
+    <string name="strProblem"></string>
+    <string name="strProblemDefinition"></string>
+    <string name="strSolution"></string>
+    <string name="strSolutionDefinition"></string>
+    <string name="strFeasibility"></string>
+    <string name="strAdvantages"></string>
+    <string name="strMultiplePossible"></string>
+    <string name="strAdv1"></string>
+    <string name="strAdv2"></string>
+    <string name="strAdv3"></string>
+    <string name="strAdv4"></string>
+    <string name="strSolutionTried"></string>
+    <string name="strTried1"></string>
+    <string name="strTried2"></string>
+    <string name="strSolutionDesc"></string>
+    <string name="strSolutionDefinitionDesc"></string>
+    <string name="strSelectionOfPremium"></string>
+    <string name="strPremium1"></string>
+    <string name="strPremium2"></string>
+    <string name="strPremium3"></string>
+    <string-array name="arFeasibility">
+        <item>Very Easy</item>
+        <item>Easy</item>
+        <item>Neither Nor</item>
+        <item>Hard</item>
+        <item>Very Hard</item>
+    </string-array>
+    <string name="strConfirm"></string>
+    <string name="strCancel"></string>
 </resources>
