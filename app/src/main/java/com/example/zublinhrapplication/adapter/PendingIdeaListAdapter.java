@@ -1,18 +1,17 @@
-package com.example.zublinhrapplication;
+package com.example.zublinhrapplication.adapter;
 
 import android.content.Context;
-import android.service.autofill.AutofillService;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.firebase.firestore.auth.User;
-
-import org.w3c.dom.Text;
+import com.example.zublinhrapplication.R;
+import com.example.zublinhrapplication.model.ShortPendingIdea;
 
 import java.util.List;
 
@@ -30,10 +29,10 @@ public class PendingIdeaListAdapter extends RecyclerView.Adapter<PendingIdeaList
         private Context context;
         public MyViewHolder(Context context, View view) {
             super(view);
-            txtAuthor = (TextView) view.findViewById(R.id.txtAuthor);
-            txtId = (TextView) view.findViewById(R.id.txtId);
-            txtShortDescription = (TextView) view.findViewById(R.id.txtShortDescription);
-            txtTitle = (TextView) view.findViewById(R.id.txtTitle);
+            txtAuthor = view.findViewById(R.id.txtAuthor);
+            txtId = view.findViewById(R.id.txtId);
+            txtShortDescription = view.findViewById(R.id.txtShortDescription);
+            txtTitle = view.findViewById(R.id.txtTitle);
             this.context = context;
             view.setOnClickListener(this);
         }
@@ -44,6 +43,7 @@ public class PendingIdeaListAdapter extends RecyclerView.Adapter<PendingIdeaList
             if (position != RecyclerView.NO_POSITION) {
                 Toast.makeText(context, "Title:" + txtTitle.getText(), Toast.LENGTH_SHORT).show();
                 //todo Create new view to show the idea
+
             }
         }
     }
@@ -54,6 +54,7 @@ public class PendingIdeaListAdapter extends RecyclerView.Adapter<PendingIdeaList
     }
 
     // Create new views (invoked by the layout manager)
+    @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent,
                                            int viewType) {

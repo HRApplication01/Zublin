@@ -1,11 +1,9 @@
 package com.example.zublinhrapplication;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,25 +11,27 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.zublinhrapplication.adapter.PendingIdeaListAdapter;
+import com.example.zublinhrapplication.model.Idea;
+import com.example.zublinhrapplication.model.ShortPendingIdea;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.firebase.ui.firestore.SnapshotParser;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 public class PendingIdeaList extends AppCompatActivity {
     private static final String TAG = "pendingIdeaList";
     private FirestoreRecyclerAdapter adapter;
+    boolean done = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,6 +91,25 @@ public class PendingIdeaList extends AppCompatActivity {
 //            }
 //        });
 //        notify();
+
+        ideasQuery.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+            @Override
+            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                List<DocumentSnapshot> docList = queryDocumentSnapshots.getDocuments();
+                for(DocumentSnapshot d : docList){
+                    Long id = d.getLong("id");
+                    id.intValue();
+                }
+
+                List<Idea> ideas = queryDocumentSnapshots.toObjects(Idea.class);
+                for(Idea i : ideas) {
+                    i.getAuthor();
+                    i.getId();
+                    done = true;
+                }
+            }
+        });
+        while(!done){ }
         System.out.println(ideas.size());
 
         adapter = new FirestoreRecyclerAdapter<ShortPendingIdea, PendingIdeaListAdapter.MyViewHolder>(options) {

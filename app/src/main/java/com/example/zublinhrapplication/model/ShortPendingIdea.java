@@ -1,4 +1,4 @@
-package com.example.zublinhrapplication;
+package com.example.zublinhrapplication.model;
 
 public class ShortPendingIdea {
     private String author;
