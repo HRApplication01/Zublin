@@ -60,6 +60,7 @@ public class UserLogin extends AppCompatActivity {
                             if (document.exists()) {
                                 String usernameText = document.getString("username");
                                 String passwordText = document.getString("password");
+                                String name = document.getString("name");
                                 boolean approved = document.getBoolean("approvedUser");
                                 long accountType = document.getLong("accountType");
 
@@ -73,12 +74,16 @@ public class UserLogin extends AppCompatActivity {
                                 if (existsUser == 1) {
                                     //switch to Employee page
                                     Intent switchToEmployee = new Intent(v.getContext(), Employee.class);
+                                    switchToEmployee.putExtra("username", username);
+                                    switchToEmployee.putExtra("name", name);
                                     startActivity(switchToEmployee);
                                     existsUser = 0;
                                 }
                                 else if (existsUser == 2) {
                                     //switch to Reviewer Page
                                     Intent switchToReviewer = new Intent(v.getContext(), Reviewer.class);
+                                    switchToReviewer.putExtra("username", username);
+                                    switchToReviewer.putExtra("name", name);
                                     startActivity(switchToReviewer);
                                     existsUser = 0;
                                 }

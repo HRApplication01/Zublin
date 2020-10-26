@@ -22,6 +22,10 @@ public class Employee extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent switchToEmployeeIdea = new Intent(v.getContext(), EmployeeIdea.class);
+                String username = getIntent().getStringExtra("username");
+                String name = getIntent().getStringExtra("name");
+                switchToEmployeeIdea.putExtra("username", username);
+                switchToEmployeeIdea.putExtra("name", name);
                 startActivity(switchToEmployeeIdea);
                 //todo
             }
