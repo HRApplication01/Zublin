@@ -60,4 +60,6 @@
     </string-array>
     <string name="strConfirm">Confirm</string>
     <string name="strCancel">Cancel</string>
+    <string name="strComments">Add or View Comments</string>
+    <string name="strApproveIdeas">Approve Idea</string>
 </resources>
