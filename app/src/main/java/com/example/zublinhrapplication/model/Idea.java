@@ -1,61 +1,88 @@
 package com.example.zublinhrapplication.model;
 
 public class Idea {
-    private boolean pending;
-    private String title;
+
+    private boolean adv1Checked;
+    private boolean adv2Checked;
+    private boolean adv3Checked;
+    private boolean adv4Checked;
     private String author;
-    private String submitter;
+    private String description;
+    private String feasibility;
     private Long id;
-    private String problemDescription;
-    private String solutionDescription;
-    private Feasibility feasibility;
-    private boolean advRed;
-    private boolean advQual;
-    private boolean advSafe;
-    private boolean advPub;
-    private boolean tried;
-    private String implementation;
-    private boolean premPowerBank;
-    private boolean premUmbrella;
-    private boolean premRunningShirt;
+    private String ideaTitle;
+    private String locationSite;
+    private boolean mySelf;
+    private boolean other;
+    private boolean pending;
+    private boolean premium1Checked;
+    private boolean premium2Checked;
+    private boolean premium3Checked;
+    private String problem;
+    private String solution;
+    private String solutionTriedDesc;
+    private String title;
+    private boolean tried1Checked;
+    private boolean tried2Checked;
 
     public Idea() {
     }
 
-    public Idea(boolean pending, String title, String author, String submitter, Long id, String problemDescription, String solutionDescription, Feasibility feasibility, boolean advRed, boolean advQual, boolean advSafe, boolean advPub, boolean tried, String implementation, boolean premPowerBank, boolean premUmbrella, boolean premRunningShirt) {
-        this.pending = pending;
-        this.title = title;
+    public Idea(boolean adv1Checked, boolean adv2Checked, boolean adv3Checked, boolean adv4Checked, String author, String description, String feasibility, Long id, String ideaTitle, String locationSite, boolean mySelf, boolean other, boolean pending, boolean premium1Checked, boolean premium2Checked, boolean premium3Checked, String problem, String solution, String solutionTriedDesc, String title, boolean tried1Checked, boolean tried2Checked) {
+        this.adv1Checked = adv1Checked;
+        this.adv2Checked = adv2Checked;
+        this.adv3Checked = adv3Checked;
+        this.adv4Checked = adv4Checked;
         this.author = author;
-        this.submitter = submitter;
-        this.id = id;
-        this.problemDescription = problemDescription;
-        this.solutionDescription = solutionDescription;
+        this.description = description;
         this.feasibility = feasibility;
-        this.advRed = advRed;
-        this.advQual = advQual;
-        this.advSafe = advSafe;
-        this.advPub = advPub;
-        this.tried = tried;
-        this.implementation = implementation;
-        this.premPowerBank = premPowerBank;
-        this.premUmbrella = premUmbrella;
-        this.premRunningShirt = premRunningShirt;
-    }
-
-    public boolean isPending() {
-        return pending;
-    }
-
-    public void setPending(boolean pending) {
+        this.id = id;
+        this.ideaTitle = ideaTitle;
+        this.locationSite = locationSite;
+        this.mySelf = mySelf;
+        this.other = other;
         this.pending = pending;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
+        this.premium1Checked = premium1Checked;
+        this.premium2Checked = premium2Checked;
+        this.premium3Checked = premium3Checked;
+        this.problem = problem;
+        this.solution = solution;
+        this.solutionTriedDesc = solutionTriedDesc;
         this.title = title;
+        this.tried1Checked = tried1Checked;
+        this.tried2Checked = tried2Checked;
+    }
+
+    public boolean isAdv1Checked() {
+        return adv1Checked;
+    }
+
+    public void setAdv1Checked(boolean adv1Checked) {
+        this.adv1Checked = adv1Checked;
+    }
+
+    public boolean isAdv2Checked() {
+        return adv2Checked;
+    }
+
+    public void setAdv2Checked(boolean adv2Checked) {
+        this.adv2Checked = adv2Checked;
+    }
+
+    public boolean isAdv3Checked() {
+        return adv3Checked;
+    }
+
+    public void setAdv3Checked(boolean adv3Checked) {
+        this.adv3Checked = adv3Checked;
+    }
+
+    public boolean isAdv4Checked() {
+        return adv4Checked;
+    }
+
+    public void setAdv4Checked(boolean adv4Checked) {
+        this.adv4Checked = adv4Checked;
     }
 
     public String getAuthor() {
@@ -66,12 +93,20 @@ public class Idea {
         this.author = author;
     }
 
-    public String getSubmitter() {
-        return submitter;
+    public String getDescription() {
+        return description;
     }
 
-    public void setSubmitter(String submitter) {
-        this.submitter = submitter;
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getFeasibility() {
+        return feasibility;
+    }
+
+    public void setFeasibility(String feasibility) {
+        this.feasibility = feasibility;
     }
 
     public Long getId() {
@@ -82,99 +117,115 @@ public class Idea {
         this.id = id;
     }
 
-    public String getProblemDescription() {
-        return problemDescription;
+    public String getIdeaTitle() {
+        return ideaTitle;
     }
 
-    public void setProblemDescription(String problemDescription) {
-        this.problemDescription = problemDescription;
+    public void setIdeaTitle(String ideaTitle) {
+        this.ideaTitle = ideaTitle;
     }
 
-    public String getSolutionDescription() {
-        return solutionDescription;
+    public String getLocationSite() {
+        return locationSite;
     }
 
-    public void setSolutionDescription(String solutionDescription) {
-        this.solutionDescription = solutionDescription;
+    public void setLocationSite(String locationSite) {
+        this.locationSite = locationSite;
     }
 
-    public Feasibility getFeasibility() {
-        return feasibility;
+    public boolean isMySelf() {
+        return mySelf;
     }
 
-    public void setFeasibility(Feasibility feasibility) {
-        this.feasibility = feasibility;
+    public void setMySelf(boolean mySelf) {
+        this.mySelf = mySelf;
     }
 
-    public boolean isAdvRed() {
-        return advRed;
+    public boolean isOther() {
+        return other;
     }
 
-    public void setAdvRed(boolean advRed) {
-        this.advRed = advRed;
+    public void setOther(boolean other) {
+        this.other = other;
     }
 
-    public boolean isAdvQual() {
-        return advQual;
+    public boolean isPending() {
+        return pending;
     }
 
-    public void setAdvQual(boolean advQual) {
-        this.advQual = advQual;
+    public void setPending(boolean pending) {
+        this.pending = pending;
     }
 
-    public boolean isAdvSafe() {
-        return advSafe;
+    public boolean isPremium1Checked() {
+        return premium1Checked;
     }
 
-    public void setAdvSafe(boolean advSafe) {
-        this.advSafe = advSafe;
+    public void setPremium1Checked(boolean premium1Checked) {
+        this.premium1Checked = premium1Checked;
     }
 
-    public boolean isAdvPub() {
-        return advPub;
+    public boolean isPremium2Checked() {
+        return premium2Checked;
     }
 
-    public void setAdvPub(boolean advPub) {
-        this.advPub = advPub;
+    public void setPremium2Checked(boolean premium2Checked) {
+        this.premium2Checked = premium2Checked;
     }
 
-    public boolean isTried() {
-        return tried;
+    public boolean isPremium3Checked() {
+        return premium3Checked;
     }
 
-    public void setTried(boolean tried) {
-        this.tried = tried;
+    public void setPremium3Checked(boolean premium3Checked) {
+        this.premium3Checked = premium3Checked;
     }
 
-    public String getImplementation() {
-        return implementation;
+    public String getProblem() {
+        return problem;
     }
 
-    public void setImplementation(String implementation) {
-        this.implementation = implementation;
+    public void setProblem(String problem) {
+        this.problem = problem;
     }
 
-    public boolean isPremPowerBank() {
-        return premPowerBank;
+    public String getSolution() {
+        return solution;
     }
 
-    public void setPremPowerBank(boolean premPowerBank) {
-        this.premPowerBank = premPowerBank;
+    public void setSolution(String solution) {
+        this.solution = solution;
     }
 
-    public boolean isPremUmbrella() {
-        return premUmbrella;
+    public String getSolutionTriedDesc() {
+        return solutionTriedDesc;
     }
 
-    public void setPremUmbrella(boolean premUmbrella) {
-        this.premUmbrella = premUmbrella;
+    public void setSolutionTriedDesc(String solutionTriedDesc) {
+        this.solutionTriedDesc = solutionTriedDesc;
     }
 
-    public boolean isPremRunningShirt() {
-        return premRunningShirt;
+    public String getTitle() {
+        return title;
     }
 
-    public void setPremRunningShirt(boolean premRunningShirt) {
-        this.premRunningShirt = premRunningShirt;
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public boolean isTried1Checked() {
+        return tried1Checked;
+    }
+
+    public void setTried1Checked(boolean tried1Checked) {
+        this.tried1Checked = tried1Checked;
+    }
+
+    public boolean isTried2Checked() {
+        return tried2Checked;
+    }
+
+    public void setTried2Checked(boolean tried2Checked) {
+        this.tried2Checked = tried2Checked;
     }
 }

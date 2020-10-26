@@ -74,42 +74,6 @@ public class PendingIdeaList extends AppCompatActivity {
             }
         }).build();
 
-//        ideas.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-//            @Override
-//            public void onComplete(@NonNull Task<QuerySnapshot> task) {
-//                if(task.isSuccessful()){
-//                    for (QueryDocumentSnapshot document : task.getResult()) {
-//                        Log.d(TAG, document.getId() + " => " + document.getData());
-//                        Map<String, Object> data = document.getData();
-//                        ShortPendingIdea dbIdea = new ShortPendingIdea((String) data.get("title"), (int) ((Long) data.get("id")).intValue(), (String) data.get("description"), (String) data.get("author"));
-//                        System.out.println(dbIdea);
-//                        ideas.add(dbIdea);
-//                    }
-//                } else {
-//                    Log.w(TAG, "Error getting documents.", task.getException());
-//                }
-//            }
-//        });
-//        notify();
-
-        ideasQuery.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
-            @Override
-            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-                List<DocumentSnapshot> docList = queryDocumentSnapshots.getDocuments();
-                for(DocumentSnapshot d : docList){
-                    Long id = d.getLong("id");
-                    id.intValue();
-                }
-
-                List<Idea> ideas = queryDocumentSnapshots.toObjects(Idea.class);
-                for(Idea i : ideas) {
-                    i.getAuthor();
-                    i.getId();
-                    done = true;
-                }
-            }
-        });
-        while(!done){ }
         System.out.println(ideas.size());
 
         adapter = new FirestoreRecyclerAdapter<ShortPendingIdea, PendingIdeaListAdapter.MyViewHolder>(options) {

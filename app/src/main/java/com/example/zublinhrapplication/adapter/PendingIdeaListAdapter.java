@@ -1,6 +1,7 @@
 package com.example.zublinhrapplication.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,9 +12,12 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.zublinhrapplication.R;
+import com.example.zublinhrapplication.ReviewerIdea;
 import com.example.zublinhrapplication.model.ShortPendingIdea;
 
 import java.util.List;
+
+import static androidx.core.content.ContextCompat.startActivity;
 
 public class PendingIdeaListAdapter extends RecyclerView.Adapter<PendingIdeaListAdapter.MyViewHolder> {
     private List<ShortPendingIdea> pendingIdeas;
@@ -44,6 +48,9 @@ public class PendingIdeaListAdapter extends RecyclerView.Adapter<PendingIdeaList
                 Toast.makeText(context, "Title:" + txtTitle.getText(), Toast.LENGTH_SHORT).show();
                 //todo Create new view to show the idea
 
+                Intent i = new Intent(view.getContext(), ReviewerIdea.class);
+                i.putExtra("id", txtId.getText());
+                startActivity(view.getContext(), i, null);
             }
         }
     }
