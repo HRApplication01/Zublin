@@ -61,4 +61,8 @@
     </string-array>
     <string name="strConfirm"></string>
     <string name="strCancel"></string>
+    <string name="strSelectAuthor"></string>
+    <string name="strAddAdminUsers">Add Admin Users</string>
+    <string name="strAddAdminUser">Add Admin User</string>
+    <string name="strAdmin">Admin</string>
 </resources>
