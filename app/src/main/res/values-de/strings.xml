@@ -61,4 +61,5 @@
     </string-array>
     <string name="strConfirm"></string>
     <string name="strCancel"></string>
+    <string name="strSelectAuthor"></string>
 </resources>
