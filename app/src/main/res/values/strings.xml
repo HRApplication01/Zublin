@@ -70,4 +70,7 @@
     <string name="strSelectTriedSolution">Error: You must state wether the solution has been attempted.</string>
     <string name="strSelectSolutionDesc">Error: You must give a previous solution description.</string>
     <string name="strSelectPremium">Error: You must select a premium.</string>
+    <string name="strAddAdminUsers">Add Admin Users</string>
+    <string name="strAddAdminUser">Add Admin User</string>
+    <string name="strAdmin">Admin</string>
 </resources>
