@@ -110,43 +110,43 @@ public class EmployeeIdea extends AppCompatActivity {
                 boolean pass = true;
                 if(!mySelf && !other) {
                     pass = false;
-                    Toast.makeText(v.getContext(), R.string.strSelectAuthor, 2).show();
+                    Toast.makeText(v.getContext(), R.string.strSelectAuthor, Toast.LENGTH_SHORT).show();
                 }
                 if(ideaTitle.isEmpty()) {
                     pass = false;
-                    Toast.makeText(v.getContext(), R.string.strSelectIdeaTitle, 2).show();
+                    Toast.makeText(v.getContext(), R.string.strSelectIdeaTitle, Toast.LENGTH_SHORT).show();
                 }
                 if(locationSite.isEmpty()) {
                     pass = false;
-                    Toast.makeText(v.getContext(), R.string.strSelectLocationSite, 2).show();
+                    Toast.makeText(v.getContext(), R.string.strSelectLocationSite, Toast.LENGTH_SHORT).show();
                 }
                 if(problem.isEmpty()) {
                     pass = false;
-                    Toast.makeText(v.getContext(), R.string.strSelectProblem, 2).show();
+                    Toast.makeText(v.getContext(), R.string.strSelectProblem, Toast.LENGTH_SHORT).show();
                 }
                 if(solution.isEmpty()) {
                     pass = false;
-                    Toast.makeText(v.getContext(), R.string.strSelectSolution, 2).show();
+                    Toast.makeText(v.getContext(), R.string.strSelectSolution, Toast.LENGTH_SHORT).show();
                 }
                 if(feasibility.isEmpty()) {
                     pass = false;
-                    Toast.makeText(v.getContext(), R.string.strSelectFeasibility, 2).show();
+                    Toast.makeText(v.getContext(), R.string.strSelectFeasibility, Toast.LENGTH_SHORT).show();
                 }
                 if (!adv1Checked && !adv2Checked && !adv3Checked && !adv4Checked) {
                     pass = false;
-                    Toast.makeText(v.getContext(), R.string.strSelectAdvantage, 2).show();
+                    Toast.makeText(v.getContext(), R.string.strSelectAdvantage, Toast.LENGTH_SHORT).show();
                 }
                 if (!tried1Checked && !tried2Checked) {
                     pass = false;
-                    Toast.makeText(v.getContext(), R.string.strSelectTriedSolution, 2).show();
+                    Toast.makeText(v.getContext(), R.string.strSelectTriedSolution, Toast.LENGTH_SHORT).show();
                 }
                 if (tried1Checked && solutionTriedDesc.isEmpty()) {
                     pass = false;
-                    Toast.makeText(v.getContext(), R.string.strSelectSolutionDesc, 2).show();
+                    Toast.makeText(v.getContext(), R.string.strSelectSolutionDesc, Toast.LENGTH_SHORT).show();
                 }
                 if (!premium1Checked && !premium2Checked && !premium3Checked) {
                     pass = false;
-                    Toast.makeText(v.getContext(), R.string.strSelectPremium, 2).show();
+                    Toast.makeText(v.getContext(), R.string.strSelectPremium, Toast.LENGTH_SHORT).show();
                 }
                 //add to database
                 if(pass) {
