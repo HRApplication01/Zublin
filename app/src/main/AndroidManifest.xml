@@ -9,13 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".Comments"></activity>
         <!-- Placing name of view in the app bar -->
         <activity
             android:name=".PendingIdeaList"
             android:label="@string/strPendingIdeas" />
-        <activity
-            android:name=".CommentsView"
-            android:label="@string/strComments"/>
         <activity
             android:name=".ApprovedIdeaList"
             android:label="@string/strApprovedIdeas" />
