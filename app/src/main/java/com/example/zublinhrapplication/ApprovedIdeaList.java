@@ -1,27 +1,40 @@
 package com.example.zublinhrapplication;
 
 import android.os.Bundle;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.LifecycleOwner;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.zublinhrapplication.adapter.PendingIdeaListAdapter;
-import com.example.zublinhrapplication.model.ShortPendingIdea;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.example.zublinhrapplication.model.Pending;
+import com.example.zublinhrapplication.model.ShortIdea;
+import com.example.zublinhrapplication.viewholder.ShortIdeaViewHolder;
+import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
+import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.firebase.ui.firestore.SnapshotParser;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 
 public class ApprovedIdeaList extends AppCompatActivity {
     private static final String TAG = "approvedIdeaList";
+    private FirestoreRecyclerAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_approved_idea_list);
+        setContentView(R.layout.short_idea_list_view);
 
-        final RecyclerView rvApprovedIdeas = findViewById(R.id.rvApprovedIdeas);
+        final RecyclerView rvApprovedIdeas = findViewById(R.id.rvShortIdeas);
         rvApprovedIdeas.setHasFixedSize(true);
 
 
@@ -31,16 +44,61 @@ public class ApprovedIdeaList extends AppCompatActivity {
         final RecyclerView.ItemDecoration itemDecoration = new DividerItemDecoration(this, DividerItemDecoration.VERTICAL);
         rvApprovedIdeas.addItemDecoration(itemDecoration);
 
-        final List<ShortPendingIdea> ideas = new ArrayList<>();
-        for (int i = 0; i < 20; i++) {
-            ideas.add(new ShortPendingIdea("Title" + i, i, "Short Description", "author"));
-        }
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        CollectionReference ideasRef = db.collection("ideas");
+        Query ideasQuery = ideasRef.whereEqualTo("pending", Pending.APPROVED.ordinal());
 
-        System.out.println(ideas.size());
+        FirestoreRecyclerOptions<ShortIdea> options = new FirestoreRecyclerOptions.Builder<ShortIdea>().setQuery(ideasQuery, new SnapshotParser<ShortIdea>() {
+            @NonNull
+            @Override
+            public ShortIdea parseSnapshot(@NonNull DocumentSnapshot snapshot) {
+                ShortIdea shortIdea = new ShortIdea();
+                shortIdea.setAuthor(snapshot.getString("author"));
+                shortIdea.setId(snapshot.getLong("id").intValue());
+                shortIdea.setIdeaTitle(snapshot.getString("title"));
+                String shortDescription = snapshot.getString("description");
+                if( shortDescription != null && shortDescription.length() >= 50 )
+                    shortDescription = shortDescription.substring(0,50);
+                shortIdea.setShortDescription(shortDescription);
+                return shortIdea;
+            }
+        }).build();
 
-        final PendingIdeaListAdapter pendingIdeas = new PendingIdeaListAdapter(ideas);
-        rvApprovedIdeas.setAdapter(pendingIdeas);
+        adapter = new FirestoreRecyclerAdapter<ShortIdea, ShortIdeaViewHolder>(options) {
+            @Override
+            public void onBindViewHolder(@NonNull ShortIdeaViewHolder holder, int position, @NonNull ShortIdea model) {
+                holder.txtAuthor.setText(model.getAuthor());
+                holder.txtId.setText("" + model.getId());
+                holder.txtDescription.setText(model.getShortDescription());
+                holder.txtTitle.setText(model.getIdeaTitle());
+            }
+
+            @NonNull
+            @Override
+            public ShortIdeaViewHolder onCreateViewHolder(@NonNull ViewGroup group, int i) {
+                View view = LayoutInflater.from(group.getContext()).inflate(R.layout.short_idea, group, false);
+                final TextView txtAuthor = view.findViewById(R.id.txtAuthor);
+                final TextView txtId = view.findViewById(R.id.txtId);
+                final TextView txtShortDescription = view.findViewById(R.id.txtShortDescription);
+                final TextView txtTitle = view.findViewById(R.id.txtTitle);
+                return new ShortIdeaViewHolder(view, txtAuthor, txtId, txtShortDescription, txtTitle);
+            }
+        };
+
+        rvApprovedIdeas.setAdapter(adapter);
+
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        adapter.startListening();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        adapter.stopListening();
+    }
 }
 
