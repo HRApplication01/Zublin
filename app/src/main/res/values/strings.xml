@@ -62,4 +62,17 @@
     <string name="strCancel">Cancel</string>
     <string name="strComments">Add or View Comments</string>
     <string name="strApproveIdeas">Approve Idea</string>
+    <string name="strSelectAuthor">Error: You must check idea author ( Myself or Other)</string>
+    <string name="strSelectIdeaTitle">Error: You must enter idea title.</string>
+    <string name="strSelectLocationSite">Error: You must give a location site.</string>
+    <string name="strSelectProblem">Error: You must state a problem being solved.</string>
+    <string name="strSelectSolution">Error: You must give a solution to the problem.</string>
+    <string name="strSelectFeasibility">Error: You must state how feasible the solution is.</string>
+    <string name="strSelectAdvantage">Error: You must state at least 1 solution advantage.</string>
+    <string name="strSelectTriedSolution">Error: You must state wether the solution has been attempted.</string>
+    <string name="strSelectSolutionDesc">Error: You must give a previous solution description.</string>
+    <string name="strSelectPremium">Error: You must select a premium.</string>
+    <string name="strAddAdminUsers">Add Admin Users</string>
+    <string name="strAddAdminUser">Add Admin User</string>
+    <string name="strAdmin">Admin</string>
 </resources>

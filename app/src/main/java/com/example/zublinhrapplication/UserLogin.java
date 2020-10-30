@@ -68,8 +68,10 @@ public class UserLogin extends AppCompatActivity {
                                     existsUser = 1;
                                 } else if (username.equals(usernameText) && password.equals(passwordText) && approved && accountType == 1) {
                                     existsUser = 2;
-                                } else if (username.equals(usernameText) && password.equals(passwordText) && !approved) {
+                                } else if (username.equals(usernameText) && password.equals(passwordText) && approved && accountType == 2) {
                                     existsUser = 3;
+                                } else if (username.equals(usernameText) && password.equals(passwordText) && !approved) {
+                                    existsUser = 4;
                                 }
                                 if (existsUser == 1) {
                                     //switch to Employee page
@@ -88,15 +90,23 @@ public class UserLogin extends AppCompatActivity {
                                     existsUser = 0;
                                 }
                                 else if (existsUser == 3) {
+                                    //switch to Reviewer Page
+                                    Intent switchToAdmin = new Intent(v.getContext(), Admin.class);
+                                    switchToAdmin.putExtra("username", username);
+                                    switchToAdmin.putExtra("name", name);
+                                    startActivity(switchToAdmin);
+                                    existsUser = 0;
+                                }
+                                else if (existsUser == 4) {
                                     //Inform user that account has not yet been approved by supervisor
-                                    Toast.makeText(v.getContext(), R.string.strLoginNotApproved, 2).show();
+                                    Toast.makeText(v.getContext(), R.string.strLoginNotApproved, Toast.LENGTH_SHORT).show();
                                     edtUsername.setText("");
                                     edtPassword.setText("");
                                     existsUser = 0;
                                 }
                                 else {
                                     //inform user of incorrect password attempt
-                                    Toast.makeText(v.getContext(), R.string.strIncorrectPasswordToast, 2).show();
+                                    Toast.makeText(v.getContext(), R.string.strIncorrectPasswordToast, Toast.LENGTH_SHORT).show();
                                     //reset text fields
                                     edtUsername.setText("");
                                     edtPassword.setText("");
@@ -105,7 +115,7 @@ public class UserLogin extends AppCompatActivity {
                             } else {
                                 //else {
                                     //inform user of incorrect password attempt
-                                    Toast.makeText(v.getContext(), R.string.strIncorrectPasswordToast, 2).show();
+                                    Toast.makeText(v.getContext(), R.string.strIncorrectPasswordToast, Toast.LENGTH_SHORT).show();
                                     //reset text fields
                                     edtUsername.setText("");
                                     edtPassword.setText("");

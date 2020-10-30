@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Reviewer">
+
+    <Button
+        android:id="@+id/btnAprrovedIdeas"
+        android:layout_width="257dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="40dp"
+        android:text="@string/strApprovedIdeas"
+        android:background="@drawable/button_shape"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnPendingIdeas" />
+
+    <Button
+        android:id="@+id/btnPendingIdeas"
+        android:layout_width="257dp"
+        android:layout_height="70dp"
+        android:background="@drawable/button_shape"
+        android:text="@string/strPendingIdeas"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+    <Button
+        android:id="@+id/btnAddAdminUsers"
+        android:layout_width="257dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/button_shape"
+        android:text="@string/strAddAdminUsers"
+        app:layout_constraintEnd_toEndOf="@+id/btnAprrovedIdeas"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/btnAprrovedIdeas"
+        app:layout_constraintTop_toBottomOf="@+id/btnAprrovedIdeas" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="116dp"
+        app:layout_constraintEnd_toEndOf="@+id/btnPendingIdeas"
+        app:layout_constraintHorizontal_bias="0.45"
+        app:layout_constraintStart_toStartOf="@+id/btnPendingIdeas"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/besser" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
