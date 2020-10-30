@@ -192,7 +192,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/strPremium3" />
             <Button
-                android:id="@+id/btnComments"
+                android:id="@+id/btnConfirm"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/button_shape"
@@ -205,7 +205,7 @@
                 android:textSize="2.5sp"/>
 
             <Button
-                android:id="@+id/btnApproveIdea"
+                android:id="@+id/btnCancel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/button_shape"

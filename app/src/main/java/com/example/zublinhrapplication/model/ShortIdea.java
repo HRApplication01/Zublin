@@ -1,14 +1,14 @@
 package com.example.zublinhrapplication.model;
 
-public class ShortPendingIdea {
+public class ShortIdea {
     private String author;
     private int id;
     private String ideaTitle;
     private String shortDescription;
 
-    public ShortPendingIdea(){}
+    public ShortIdea(){}
 
-    public ShortPendingIdea(String ideaTitle, int id, String shortDescription, String author) {
+    public ShortIdea(String ideaTitle, int id, String shortDescription, String author) {
         this.author = author;
         this.id = id;
         this.ideaTitle = ideaTitle;
