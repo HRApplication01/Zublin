@@ -45,84 +45,85 @@ public class UserLogin extends AppCompatActivity {
                 final String username = edtUsername.getText().toString();
                 final String password = edtPassword.getText().toString();
 
-                //setup firebase instance
-                FirebaseFirestore db = FirebaseFirestore.getInstance();
-                //setup collection reference
-                final CollectionReference applicationUsers = db.collection("applicationUsers");
-                //Checks if username is already use
-                DocumentReference docRef = db.collection("applicationUsers").document(username);
-                docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                        if (task.isSuccessful()) {
-                            DocumentSnapshot document = task.getResult();
-                            assert document != null;
-                            if (document.exists()) {
-                                String usernameText = document.getString("username");
-                                String passwordText = document.getString("password");
-                                String name = document.getString("name");
-                                boolean approved = document.getBoolean("approvedUser");
-                                long accountType = document.getLong("accountType");
-
-                                if (username.equals(usernameText) && password.equals(passwordText) && approved && accountType == 0) {
-                                    existsUser = 1;
-                                } else if (username.equals(usernameText) && password.equals(passwordText) && approved && accountType == 1) {
-                                    existsUser = 2;
-                                } else if (username.equals(usernameText) && password.equals(passwordText) && approved && accountType == 2) {
-                                    existsUser = 3;
-                                } else if (username.equals(usernameText) && password.equals(passwordText) && !approved) {
-                                    existsUser = 4;
-                                }
-                                if (existsUser == 1) {
-                                    //switch to Employee page
-                                    Intent switchToEmployee = new Intent(v.getContext(), Employee.class);
-                                    switchToEmployee.putExtra("username", username);
-                                    switchToEmployee.putExtra("name", name);
-                                    startActivity(switchToEmployee);
-                                    existsUser = 0;
-                                } else if (existsUser == 2) {
-                                    //switch to Reviewer Page
-                                    Intent switchToReviewer = new Intent(v.getContext(), Reviewer.class);
-                                    switchToReviewer.putExtra("username", username);
-                                    switchToReviewer.putExtra("name", name);
-                                    startActivity(switchToReviewer);
-                                    existsUser = 0;
-                                } else if (existsUser == 3) {
-                                    //switch to Reviewer Page
-                                    Intent switchToAdmin = new Intent(v.getContext(), Admin.class);
-                                    switchToAdmin.putExtra("username", username);
-                                    switchToAdmin.putExtra("name", name);
-                                    startActivity(switchToAdmin);
-                                    existsUser = 0;
-                                } else if (existsUser == 4) {
-                                    //Inform user that account has not yet been approved by supervisor
-                                    Toast.makeText(v.getContext(), R.string.strLoginNotApproved, Toast.LENGTH_SHORT).show();
-                                    edtUsername.setText("");
-                                    edtPassword.setText("");
-                                    existsUser = 0;
+                if (username.isEmpty() || password.isEmpty()) {
+                    if (username.isEmpty()) {
+                        Toast.makeText(v.getContext(), R.string.strMustEnterUsername, Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(v.getContext(), R.string.strMustEnterPassword, Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    //setup firebase instance
+                    FirebaseFirestore db = FirebaseFirestore.getInstance();
+                    //setup collection reference
+                    final CollectionReference applicationUsers = db.collection("applicationUsers");
+                    //Checks if username is already use
+                    DocumentReference docRef = db.collection("applicationUsers").document(username);
+                    docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                        @Override
+                        public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                            if (task.isSuccessful()) {
+                                DocumentSnapshot document = task.getResult();
+                                assert document != null;
+                                if (document.exists()) {
+                                    String usernameText = document.getString("username");
+                                    String passwordText = document.getString("password");
+                                    String name = document.getString("name");
+                                    boolean approved = document.getBoolean("approvedUser");
+                                    long accountType = document.getLong("accountType");
+                                    if (username.equals(usernameText) && password.equals(passwordText) && approved && accountType == 0) {
+                                        existsUser = 1;
+                                    } else if (username.equals(usernameText) && password.equals(passwordText) && approved && accountType == 1) {
+                                        existsUser = 2;
+                                    } else if (username.equals(usernameText) && password.equals(passwordText) && approved && accountType == 2) {
+                                        existsUser = 3;
+                                    } else if (username.equals(usernameText) && password.equals(passwordText) && !approved) {
+                                        existsUser = 4;
+                                    }
+                                    if (existsUser == 1) {
+                                        //switch to Employee page
+                                        Intent switchToEmployee = new Intent(v.getContext(), Employee.class);
+                                        switchToEmployee.putExtra("username", username);
+                                        switchToEmployee.putExtra("name", name);
+                                        startActivity(switchToEmployee);
+                                        existsUser = 0;
+                                    } else if (existsUser == 2) {
+                                        //switch to Reviewer Page
+                                        Intent switchToReviewer = new Intent(v.getContext(), Reviewer.class);
+                                        switchToReviewer.putExtra("username", username);
+                                        switchToReviewer.putExtra("name", name);
+                                        startActivity(switchToReviewer);
+                                        existsUser = 0;
+                                    } else if (existsUser == 3) {
+                                        //switch to Reviewer Page
+                                        Intent switchToAdmin = new Intent(v.getContext(), Admin.class);
+                                        switchToAdmin.putExtra("username", username);
+                                        switchToAdmin.putExtra("name", name);
+                                        startActivity(switchToAdmin);
+                                        existsUser = 0;
+                                    } else if (existsUser == 4) {
+                                        //Inform user that account has not yet been approved by supervisor
+                                        Toast.makeText(v.getContext(), R.string.strLoginNotApproved, Toast.LENGTH_SHORT).show();
+                                        edtUsername.setText("");
+                                        edtPassword.setText("");
+                                        existsUser = 0;
+                                    } else {
+                                        //inform user of incorrect password attempt
+                                        Toast.makeText(v.getContext(), R.string.strIncorrectPasswordToast, Toast.LENGTH_SHORT).show();
+                                        //reset text fields
+                                        edtUsername.setText("");
+                                        edtPassword.setText("");
+                                        existsUser = 0;
+                                    }
                                 } else {
                                     //inform user of incorrect password attempt
                                     Toast.makeText(v.getContext(), R.string.strIncorrectPasswordToast, Toast.LENGTH_SHORT).show();
-                                    //reset text fields
                                     edtUsername.setText("");
                                     edtPassword.setText("");
-                                    existsUser = 0;
                                 }
-                            } else {
-                                //else {
-                                //inform user of incorrect password attempt
-                                Toast.makeText(v.getContext(), R.string.strIncorrectPasswordToast, Toast.LENGTH_SHORT).show();
-                                //reset text fields
-                                edtUsername.setText("");
-                                edtPassword.setText("");
-                                //}
                             }
-                        } else {
-                            //System.out.println("get failed with ");
-                            existsUser = 0;
                         }
-                    }
-                });
+                    });
+                }
             }
         });
 
