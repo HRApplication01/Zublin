@@ -108,27 +108,27 @@ public class EmployeeIdea extends AppCompatActivity {
 
                 //checks if all values are good so we can add to database
                 boolean pass = true;
-                if(!mySelf && !other) {
+                if (!mySelf && !other) {
                     pass = false;
                     Toast.makeText(v.getContext(), R.string.strSelectAuthor, Toast.LENGTH_SHORT).show();
                 }
-                if(ideaTitle.isEmpty()) {
+                if (ideaTitle.isEmpty()) {
                     pass = false;
                     Toast.makeText(v.getContext(), R.string.strSelectIdeaTitle, Toast.LENGTH_SHORT).show();
                 }
-                if(locationSite.isEmpty()) {
+                if (locationSite.isEmpty()) {
                     pass = false;
                     Toast.makeText(v.getContext(), R.string.strSelectLocationSite, Toast.LENGTH_SHORT).show();
                 }
-                if(problem.isEmpty()) {
+                if (problem.isEmpty()) {
                     pass = false;
                     Toast.makeText(v.getContext(), R.string.strSelectProblem, Toast.LENGTH_SHORT).show();
                 }
-                if(solution.isEmpty()) {
+                if (solution.isEmpty()) {
                     pass = false;
                     Toast.makeText(v.getContext(), R.string.strSelectSolution, Toast.LENGTH_SHORT).show();
                 }
-                if(feasibility.isEmpty()) {
+                if (feasibility.isEmpty()) {
                     pass = false;
                     Toast.makeText(v.getContext(), R.string.strSelectFeasibility, Toast.LENGTH_SHORT).show();
                 }
@@ -149,7 +149,7 @@ public class EmployeeIdea extends AppCompatActivity {
                     Toast.makeText(v.getContext(), R.string.strSelectPremium, Toast.LENGTH_SHORT).show();
                 }
                 //add to database
-                if(pass) {
+                if (pass) {
                     //setup firebase instance
                     FirebaseFirestore db = FirebaseFirestore.getInstance();
                     //setup collection reference
@@ -159,13 +159,12 @@ public class EmployeeIdea extends AppCompatActivity {
                             .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                                 @Override
                                 public void onSuccess(QuerySnapshot documentSnapshots) {
-                                    Log.d(TAG,"Got Here\n");
+                                    Log.d(TAG, "Got Here\n");
                                     if (documentSnapshots.size() != 0) {
                                         DocumentSnapshot item = documentSnapshots.getDocuments().get(0);
                                         Long idTemp = item.getLong("id");
                                         id = idTemp.intValue();
-                                    }
-                                    else {
+                                    } else {
                                         id = 0;
                                     }
                                     id++;

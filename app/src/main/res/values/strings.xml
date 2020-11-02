@@ -75,4 +75,10 @@
     <string name="strAddAdminUsers">Add Admin Users</string>
     <string name="strAddAdminUser">Add Admin User</string>
     <string name="strAdmin">Admin</string>
+    <string name="strReviewPrivacyConditional">"You Must Approve / Review Privacy Terms. "</string>
+    <string name="strTermsAndConditions">Terms And Conditions</string>
+    <string name="strTermsList">This Is The Terms And Conditions.</string>
+    <string name="strMustEnterName">Error: Must Enter Valid Name.</string>
+    <string name="strMustEnterUsername">Error: Must Enter Valid Username.</string>
+    <string name="strMustEnterPassword">Error: Must Enter Valid Password.</string>
 </resources>

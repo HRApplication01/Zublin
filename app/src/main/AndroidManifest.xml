@@ -12,16 +12,19 @@
         <!-- Placing name of view in the app bar -->
         <activity
             android:name=".Admin"
-            android:label="@string/strAdmin"/>
+            android:label="@string/strAdmin" />
+        <activity
+            android:name=".TermsAndConditions"
+            android:label="@string/strTermsAndConditions" />
         <activity
             android:name=".AddAdminUser"
-            android:label="@string/strAddAdminUser"/>
+            android:label="@string/strAddAdminUser" />
         <activity
             android:name=".PendingIdeaList"
             android:label="@string/strPendingIdeas" />
         <activity
             android:name=".CommentsView"
-            android:label="@string/strComments"/>
+            android:label="@string/strComments" />
         <activity
             android:name=".ApprovedIdeaList"
             android:label="@string/strApprovedIdeas" />
