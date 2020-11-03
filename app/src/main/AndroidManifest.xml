@@ -17,6 +17,9 @@
             android:name=".TermsAndConditions"
             android:label="@string/strTermsAndConditions" />
         <activity
+            android:name=".AnonymousIdea"
+            android:label="@string/strAnonymousIdea" />
+        <activity
             android:name=".AddAdminUser"
             android:label="@string/strAddAdminUser" />
         <activity

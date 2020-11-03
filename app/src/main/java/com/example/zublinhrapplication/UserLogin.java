@@ -32,6 +32,7 @@ public class UserLogin extends AppCompatActivity {
         //setup buttons
         final Button btnLogin = (Button) findViewById(R.id.btnLogin);
         final Button btnRegister = (Button) findViewById(R.id.btnRegister);
+        final Button btnAnonymous = (Button) findViewById(R.id.btnAnonymousSubmit);
 
         //login button method
         btnLogin.setOnClickListener(new View.OnClickListener() {
@@ -134,6 +135,15 @@ public class UserLogin extends AppCompatActivity {
                 //switch to register page
                 Intent switchToRegister = new Intent(v.getContext(), UserRegisterLogin.class);
                 startActivity(switchToRegister);
+            }
+        });
+
+        btnAnonymous.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //switch to register page
+                Intent switchToAnonymous = new Intent(v.getContext(), AnonymousIdea.class);
+                startActivity(switchToAnonymous);
             }
         });
     }

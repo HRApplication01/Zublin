@@ -81,4 +81,7 @@
     <string name="strMustEnterName">Error: Must Enter Valid Name.</string>
     <string name="strMustEnterUsername">Error: Must Enter Valid Username.</string>
     <string name="strMustEnterPassword">Error: Must Enter Valid Password.</string>
+    <string name="strAnonymousIdea">Anonymous Idea</string>
+    <string name="strAnonymousIdeaSubmit">Submit Idea Anonymously</string>
+    <string name="strOr">Or</string>
 </resources>

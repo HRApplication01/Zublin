@@ -12,6 +12,7 @@
         android:layout_height="70dp"
         android:background="@drawable/button_shape"
         android:text="@string/strMyIdea"
+        android:textColor="@color/buttonText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
@@ -22,6 +23,7 @@
         android:layout_height="70dp"
         android:layout_marginTop="40dp"
         android:text="@string/strInspired"
+        android:textColor="@color/buttonText"
         android:background="@drawable/button_shape"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -34,6 +36,7 @@
         android:layout_marginTop="40dp"
         android:background="@drawable/button_shape"
         android:text="@string/strProfile"
+        android:textColor="@color/buttonText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnInspired" />
