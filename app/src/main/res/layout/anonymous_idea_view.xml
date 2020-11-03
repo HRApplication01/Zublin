@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ReviewerIdea">
+    tools:context=".EmployeeIdea">
 
     <TextView
         android:id="@+id/txtCreateIdea"
@@ -32,82 +32,59 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:weightSum="200">
-            <TextView
-                android:id="@+id/txtIdeaFrom"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="@string/strIdeaFrom"
-                android:textSize="20sp" />
 
-            <CheckBox
-                android:id="@+id/cbxMyself"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:clickable="false"
-                android:text="@string/strMyself" />
-
-            <CheckBox
-                android:id="@+id/cbxOther"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:clickable="false"
-                android:text="@string/strOther" />
             <TextView
                 android:id="@+id/txtTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/strTitle"
                 android:textSize="20sp" />
-
             <EditText
                 android:id="@+id/edtIdeaTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="@string/strIdeaTitle"
-                android:inputType="none" />
+                android:inputType="textShortMessage" />
             <TextView
                 android:id="@+id/txtLocationSite"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/strLocationSite"
                 android:textSize="20sp" />
-
             <EditText
                 android:id="@+id/edtLocationSite"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="@string/strEmployeeIdeaLocationSite"
-                android:inputType="none" />
+                android:inputType="textPersonName" />
             <TextView
                 android:id="@+id/txtProblem"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/strProblem"
                 android:textSize="20sp" />
-
             <EditText
                 android:id="@+id/edtProblem"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="@string/strProblemDefinition"
-                android:inputType="none" />
+                android:inputType="textPersonName" />
             <TextView
                 android:id="@+id/txtSolution"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/strSolution"
                 android:textSize="20sp" />
-
             <EditText
                 android:id="@+id/edtSolution"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="@string/strSolutionDefinition"
-                android:inputType="none" />
+                android:inputType="textPersonName" />
             <TextView
                 android:id="@+id/txtFeasibility"
                 android:layout_width="match_parent"
@@ -130,33 +107,25 @@
                 android:layout_height="wrap_content"
                 android:text="@string/strMultiplePossible"
                 android:textSize="15sp" />
-
             <CheckBox
                 android:id="@+id/cbxAdv1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:clickable="false"
                 android:text="@string/strAdv1" />
-
             <CheckBox
                 android:id="@+id/cbxAdv2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:clickable="false"
                 android:text="@string/strAdv2" />
-
             <CheckBox
                 android:id="@+id/cbxAdv3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:clickable="false"
                 android:text="@string/strAdv3" />
-
             <CheckBox
                 android:id="@+id/cbxAdv4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:clickable="false"
                 android:text="@string/strAdv4" />
             <TextView
                 android:id="@+id/txtSolutionTried"
@@ -164,19 +133,15 @@
                 android:layout_height="wrap_content"
                 android:text="@string/strSolutionTried"
                 android:textSize="20sp" />
-
             <CheckBox
                 android:id="@+id/cbxTried1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:clickable="false"
                 android:text="@string/strTried1" />
-
             <CheckBox
                 android:id="@+id/cbxTried2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:clickable="false"
                 android:text="@string/strTried2" />
             <TextView
                 android:id="@+id/txtSolutionTriedDesc"
@@ -191,42 +156,15 @@
                 android:ems="10"
                 android:hint="@string/strSolutionDefinitionDesc"
                 android:inputType="textPersonName" />
-            <TextView
-                android:id="@+id/txtSelectionOfPremium"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/strSelectionOfPremium"
-                android:textSize="20sp" />
-
-            <CheckBox
-                android:id="@+id/cbxPremium1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:clickable="false"
-                android:text="@string/strPremium1" />
-
-            <CheckBox
-                android:id="@+id/cbxPremium2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:clickable="false"
-                android:text="@string/strPremium2" />
-
-            <CheckBox
-                android:id="@+id/cbxPremium3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:clickable="false"
-                android:text="@string/strPremium3" />
 
             <Button
-                android:id="@+id/btnComments"
+                android:id="@+id/btnConfirm"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/button_shape"
-                android:text="@string/strComments"
+                android:text="@string/strConfirm"
                 android:textColor="@color/buttonText" />
-            <!--just to space buttons, not an actual usable field-->
+<!--just to space buttons, not an actual usable field-->
             <TextView
                 android:id="@+id/textView"
                 android:layout_width="match_parent"
@@ -234,11 +172,11 @@
                 android:textSize="2.5sp"/>
 
             <Button
-                android:id="@+id/btnApproveIdea"
+                android:id="@+id/btnCancel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/button_shape"
-                android:text="@string/strApproveIdeas"
+                android:text="@string/strCancel"
                 android:textColor="@color/buttonText" />
         </LinearLayout>
     </ScrollView>
@@ -253,4 +191,5 @@
         app:layout_constraintStart_toStartOf="@+id/txtCreateIdea"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/besser" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
