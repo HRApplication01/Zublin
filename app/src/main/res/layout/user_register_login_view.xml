@@ -10,11 +10,12 @@
         android:id="@+id/btnRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/strRegister"
         android:background="@drawable/button_shape"
+        android:text="@string/strRegister"
+        android:textColor="@color/buttonText"
         app:layout_constraintEnd_toEndOf="@+id/edtPassword"
         app:layout_constraintStart_toStartOf="@+id/edtPassword"
-        app:layout_constraintTop_toBottomOf="@+id/edtPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/cbxTermsAndConditions" />
 
     <TextView
         android:id="@+id/txtRegister"
@@ -103,5 +104,30 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.511"
         app:srcCompat="@drawable/besser" />
+
+    <CheckBox
+        android:id="@+id/cbxTermsAndConditions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@+id/edtPassword"
+        app:layout_constraintTop_toBottomOf="@+id/txtTermsAndConditionsTitle" />
+
+    <TextView
+        android:id="@+id/txtTermsAndConditions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/strTermsAndConditions"
+        android:textColor="#0027FF"
+        app:layout_constraintBottom_toBottomOf="@+id/cbxTermsAndConditions"
+        app:layout_constraintEnd_toEndOf="@+id/edtPassword"
+        app:layout_constraintTop_toTopOf="@+id/cbxTermsAndConditions" />
+
+    <TextView
+        android:id="@+id/txtTermsAndConditionsTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/strTermsAndConditions"
+        app:layout_constraintStart_toStartOf="@+id/edtPassword"
+        app:layout_constraintTop_toBottomOf="@+id/edtPassword" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

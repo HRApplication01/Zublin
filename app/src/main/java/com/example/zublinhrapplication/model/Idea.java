@@ -14,7 +14,7 @@ public class Idea {
     private String locationSite;
     private boolean mySelf;
     private boolean other;
-    private boolean pending;
+    private Long pending;
     private boolean premium1Checked;
     private boolean premium2Checked;
     private boolean premium3Checked;
@@ -28,7 +28,7 @@ public class Idea {
     public Idea() {
     }
 
-    public Idea(boolean adv1Checked, boolean adv2Checked, boolean adv3Checked, boolean adv4Checked, String author, String description, String feasibility, Long id, String ideaTitle, String locationSite, boolean mySelf, boolean other, boolean pending, boolean premium1Checked, boolean premium2Checked, boolean premium3Checked, String problem, String solution, String solutionTriedDesc, String title, boolean tried1Checked, boolean tried2Checked) {
+    public Idea(boolean adv1Checked, boolean adv2Checked, boolean adv3Checked, boolean adv4Checked, String author, String description, String feasibility, Long id, String ideaTitle, String locationSite, boolean mySelf, boolean other, Long pending, boolean premium1Checked, boolean premium2Checked, boolean premium3Checked, String problem, String solution, String solutionTriedDesc, String title, boolean tried1Checked, boolean tried2Checked) {
         this.adv1Checked = adv1Checked;
         this.adv2Checked = adv2Checked;
         this.adv3Checked = adv3Checked;
@@ -149,11 +149,11 @@ public class Idea {
         this.other = other;
     }
 
-    public boolean isPending() {
+    public Long getPending() {
         return pending;
     }
 
-    public void setPending(boolean pending) {
+    public void setPending(Long pending) {
         this.pending = pending;
     }
 

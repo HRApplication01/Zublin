@@ -1,8 +1,5 @@
 package com.example.zublinhrapplication;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -14,32 +11,29 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.CollectionReference;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.google.firebase.firestore.auth.User;
 
-import java.util.Collection;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
-public class EmployeeIdea extends AppCompatActivity {
+public class AnonymousIdea extends AppCompatActivity {
 
     public static int id = 0;
     public static boolean done = false;
-    private static final String TAG = "employeeIdea";
+    private static final String TAG = "AnonymousIdea";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.employee_idea_view);
+        setContentView(R.layout.anonymous_idea_view);
 
         //setup drop down list first so I don't forget
         final Spinner staticSpinner = (Spinner) findViewById(R.id.spinner);
@@ -64,13 +58,6 @@ public class EmployeeIdea extends AppCompatActivity {
                 //final TextView edtPassword = (TextView) findViewById(R.id.edtPassword);
                 //pulls text from fields
                 //final String password = edtPassword.getText().toString();
-
-                //setup fields
-                final CheckBox cbxMyself = (CheckBox) findViewById(R.id.cbxMyself);
-                final boolean mySelf = cbxMyself.isChecked();
-                final CheckBox cbxOther = (CheckBox) findViewById(R.id.cbxOther);
-                final boolean other = cbxOther.isChecked();
-
                 final TextView edtIdeaTitle = (TextView) findViewById(R.id.edtIdeaTitle);
                 final String ideaTitle = edtIdeaTitle.getText().toString();
                 final TextView edtLocationSite = (TextView) findViewById(R.id.edtLocationSite);
@@ -99,19 +86,8 @@ public class EmployeeIdea extends AppCompatActivity {
                 final TextView edtSolutionTriedDesc = (TextView) findViewById(R.id.edtSolutionTriedDesc);
                 final String solutionTriedDesc = edtSolutionTriedDesc.getText().toString();
 
-                final CheckBox cbxPremium1 = (CheckBox) findViewById(R.id.cbxPremium1);
-                final boolean premium1Checked = cbxPremium1.isChecked();
-                final CheckBox cbxPremium2 = (CheckBox) findViewById(R.id.cbxPremium2);
-                final boolean premium2Checked = cbxPremium2.isChecked();
-                final CheckBox cbxPremium3 = (CheckBox) findViewById(R.id.cbxPremium3);
-                final boolean premium3Checked = cbxPremium3.isChecked();
-
                 //checks if all values are good so we can add to database
                 boolean pass = true;
-                if (!mySelf && !other) {
-                    pass = false;
-                    Toast.makeText(v.getContext(), R.string.strSelectAuthor, Toast.LENGTH_SHORT).show();
-                }
                 if (ideaTitle.isEmpty()) {
                     pass = false;
                     Toast.makeText(v.getContext(), R.string.strSelectIdeaTitle, Toast.LENGTH_SHORT).show();
@@ -144,10 +120,6 @@ public class EmployeeIdea extends AppCompatActivity {
                     pass = false;
                     Toast.makeText(v.getContext(), R.string.strSelectSolutionDesc, Toast.LENGTH_SHORT).show();
                 }
-                if (!premium1Checked && !premium2Checked && !premium3Checked) {
-                    pass = false;
-                    Toast.makeText(v.getContext(), R.string.strSelectPremium, Toast.LENGTH_SHORT).show();
-                }
                 //add to database
                 if (pass) {
                     //setup firebase instance
@@ -168,17 +140,15 @@ public class EmployeeIdea extends AppCompatActivity {
                                         id = 0;
                                     }
                                     id++;
-                                    String username = getIntent().getStringExtra("username");
-                                    String name = getIntent().getStringExtra("name");
                                     //create document idea object
                                     Map<String, Object> idea = new HashMap<>();
-                                    idea.put("author", name);
+                                    idea.put("author", "Anonymous");
                                     idea.put("description", solution);
                                     idea.put("id", id);
                                     idea.put("pending", 0);
                                     idea.put("title", ideaTitle);
-                                    idea.put("mySelf", mySelf);
-                                    idea.put("other", other);
+                                    idea.put("mySelf", false);
+                                    idea.put("other", false);
                                     idea.put("ideaTitle", ideaTitle);
                                     idea.put("locationSite", locationSite);
                                     idea.put("problem", problem);
@@ -191,18 +161,16 @@ public class EmployeeIdea extends AppCompatActivity {
                                     idea.put("tried1Checked", tried1Checked);
                                     idea.put("tried2Checked", tried2Checked);
                                     idea.put("solutionTriedDesc", solutionTriedDesc);
-                                    idea.put("premium1Checked", premium1Checked);
-                                    idea.put("premium2Checked", premium2Checked);
-                                    idea.put("premium3Checked", premium3Checked);
+                                    idea.put("premium1Checked", false);
+                                    idea.put("premium2Checked", false);
+                                    idea.put("premium3Checked", false);
                                     //add user to the database
                                     ideasCollection.add(idea);
                                     //switch to Employee Menu Page
-                                    Intent switchToEmployee = new Intent(v.getContext(), Employee.class);
-                                    switchToEmployee.putExtra("username", username);
-                                    switchToEmployee.putExtra("name", name);
+                                    Intent switchToLogin = new Intent(v.getContext(), UserLogin.class);
                                     id = 0;
                                     done = false;
-                                    startActivity(switchToEmployee);
+                                    startActivity(switchToLogin);
                                 }
                             });
                 }
@@ -214,12 +182,8 @@ public class EmployeeIdea extends AppCompatActivity {
             public void onClick(View v) {
 
                 //switch to Employee Menu Page
-                Intent switchToEmployee = new Intent(v.getContext(), Employee.class);
-                String username = getIntent().getStringExtra("username");
-                String name = getIntent().getStringExtra("name");
-                switchToEmployee.putExtra("username", username);
-                switchToEmployee.putExtra("name", name);
-                startActivity(switchToEmployee);
+                Intent switchToLogin = new Intent(v.getContext(), UserLogin.class);
+                startActivity(switchToLogin);
             }
         });
 

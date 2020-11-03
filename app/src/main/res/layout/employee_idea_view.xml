@@ -13,6 +13,7 @@
         android:layout_marginTop="112dp"
         android:background="@drawable/rectangle_box_design"
         android:text="@string/CreateIdea"
+        android:textColor="@color/buttonText"
         android:textSize="42sp"
         app:layout_constraintEnd_toEndOf="@id/scrollView"
         app:layout_constraintStart_toStartOf="parent"
@@ -192,11 +193,13 @@
                 android:layout_height="wrap_content"
                 android:text="@string/strPremium3" />
             <Button
-                android:id="@+id/btnComments"
+                android:id="@+id/btnConfirm"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/button_shape"
-                android:text="@string/strConfirm" />
+                android:text="@string/strConfirm"
+                android:textColor="@color/buttonText"
+                />
 <!--just to space buttons, not an actual usable field-->
             <TextView
                 android:id="@+id/textView"
@@ -205,11 +208,12 @@
                 android:textSize="2.5sp"/>
 
             <Button
-                android:id="@+id/btnApproveIdea"
+                android:id="@+id/btnCancel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/button_shape"
-                android:text="@string/strCancel" />
+                android:text="@string/strCancel"
+                android:textColor="@color/buttonText" />
         </LinearLayout>
     </ScrollView>
 
