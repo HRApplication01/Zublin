@@ -30,19 +30,23 @@ public class Comments extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.comments_view);
 
-        final long dum_ideaID = 105;
-        final String dum_author = "Phil";
+        final String dum = getIntent().getStringExtra("ideaId");
+        Log.d(TAG, dum);
+        final Long dum_ideaID = Long.parseLong(dum);
+        Log.d(TAG, "" + dum_ideaID);
+        final String dum_author = getIntent().getStringExtra("name");
 
 
         final FirebaseFirestore db = FirebaseFirestore.getInstance(); //access database
-        final Button btnComment = (Button) findViewById(R.id.post); //interact with button
-        final EditText inputComment = (EditText) findViewById(R.id.add_comment);//Add comment
-        final String txtComment = inputComment.getText().toString(); //text from view to string
+        final Button btnComment = (Button) findViewById(R.id.post);//interact with button
         final CollectionReference comments = db.collection("comments"); //table in database called comments
 
         btnComment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                final EditText inputComment = (EditText) findViewById(R.id.add_comment);//Add comment
+                final String txtComment = inputComment.getText().toString(); //text from view to string
 
                 final Query idQuery = comments.orderBy("id", Query.Direction.DESCENDING).limit(1); //get largest id
                 idQuery.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
@@ -54,12 +58,14 @@ public class Comments extends AppCompatActivity {
                             Long idTemp = d.getLong("id");
                             id = idTemp + 1;
                         }
+                        inputComment.setText("");
                         createComment(id, dum_ideaID, dum_author,txtComment);
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
                         long id = 1;
+                        inputComment.setText("");
                         createComment(id, dum_ideaID, dum_author,txtComment);
                     }
                 });
