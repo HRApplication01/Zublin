@@ -76,4 +76,7 @@
     <string name="strOr">Or</string>
     <string name="strCurrentIdeas">View / Edit Ideas</string>
     <string name="IdeaReview">"Idea Review "</string>
+    <string name="strNoIdeasFound">No Ideas Found: Empty List</string>
+    <string name="strEmployeeIdeaList">Employee Ideas</string>
+    <string name="strEmployeeIdeaReview">Employee Idea Review</string>
 </resources>

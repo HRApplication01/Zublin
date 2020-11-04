@@ -48,7 +48,7 @@ public class Employee extends AppCompatActivity {
         btnViewEditIdeas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent switchToEmployeeIdeaListView = new Intent(v.getContext(), EmployeeIdea.class);
+                Intent switchToEmployeeIdeaListView = new Intent(v.getContext(), EmployeeIdeaList.class);
                 String username = getIntent().getStringExtra("username");
                 String name = getIntent().getStringExtra("name");
                 switchToEmployeeIdeaListView.putExtra("username", username);
