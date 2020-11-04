@@ -118,10 +118,11 @@ public class ReviewerIdea extends AppCompatActivity {
         btnComment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent commentView = new Intent(v.getContext(), Comments.class);
-//                commentView.putExtra("username", username);
-//                commentView.putExtra("ideaId", strId);
-//                commentView.putExtra("name", name);
+                Intent commentView = new Intent(v.getContext(), Comments.class);
+                commentView.putExtra("username", username);
+                commentView.putExtra("ideaId", strId);
+                commentView.putExtra("name", name);
+                startActivity(commentView);
             }
         });
 
