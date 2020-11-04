@@ -26,7 +26,7 @@
             android:name=".PendingIdeaList"
             android:label="@string/strPendingIdeas" />
         <activity
-            android:name=".CommentsView"
+            android:name=".Comments"
             android:label="@string/strComments" />
         <activity
             android:name=".ApprovedIdeaList"
