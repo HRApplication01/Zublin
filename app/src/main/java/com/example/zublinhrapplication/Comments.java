@@ -32,6 +32,8 @@ public class Comments extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.comments_view);
 
+        //Still working
+
         final String dum = getIntent().getStringExtra("ideaId");
         Log.d(TAG, dum);
         final Long dum_ideaID = Long.parseLong(dum);
