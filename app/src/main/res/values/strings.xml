@@ -84,4 +84,5 @@
     <string name="strAnonymousIdea">Anonymous Idea</string>
     <string name="strAnonymousIdeaSubmit">Submit Idea Anonymously</string>
     <string name="strOr">Or</string>
+    <string name="strCurrentIdeas">View / Edit Ideas</string>
 </resources>
