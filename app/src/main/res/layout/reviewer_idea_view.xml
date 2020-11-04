@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="112dp"
         android:background="@drawable/rectangle_box_design"
-        android:text="@string/CreateIdea"
+        android:text="@string/IdeaReview"
         android:textColor="@color/buttonText"
         android:textSize="42sp"
         app:layout_constraintEnd_toEndOf="@id/scrollView"
@@ -59,7 +59,7 @@
                 android:text="@string/strTitle"
                 android:textSize="20sp" />
 
-            <EditText
+            <TextView
                 android:id="@+id/edtIdeaTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -73,7 +73,7 @@
                 android:text="@string/strLocationSite"
                 android:textSize="20sp" />
 
-            <EditText
+            <TextView
                 android:id="@+id/edtLocationSite"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -87,7 +87,7 @@
                 android:text="@string/strProblem"
                 android:textSize="20sp" />
 
-            <EditText
+            <TextView
                 android:id="@+id/edtProblem"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -100,8 +100,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/strSolution"
                 android:textSize="20sp" />
-
-            <EditText
+            <TextView
                 android:id="@+id/edtSolution"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -114,10 +113,12 @@
                 android:layout_height="wrap_content"
                 android:text="@string/strFeasibility"
                 android:textSize="20sp" />
-            <Spinner
-                android:id="@+id/spinner"
+            <TextView
+                android:id="@+id/edtFeasibility"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:text="@string/strMultiplePossible"
+                android:textSize="15sp" />
             <TextView
                 android:id="@+id/txtAdvantages"
                 android:layout_width="match_parent"
@@ -184,7 +185,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/strSolutionDesc"
                 android:textSize="20sp" />
-            <EditText
+            <TextView
                 android:id="@+id/edtSolutionTriedDesc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

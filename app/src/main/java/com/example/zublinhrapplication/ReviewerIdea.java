@@ -11,13 +11,16 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.example.zublinhrapplication.model.Comment;
 import com.example.zublinhrapplication.model.Idea;
+import com.example.zublinhrapplication.model.Pending;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
 
@@ -48,19 +51,19 @@ public class ReviewerIdea extends AppCompatActivity {
         final CheckBox chkAdv3Checked = findViewById(R.id.cbxAdv3);
         final CheckBox chkAdv4Checked = findViewById(R.id.cbxAdv4);
 //        final EditText txtAuthor = findViewById(R.id.txtAuthor);
-//        final EditText txtFeasibility;
+        final TextView txtFeasibility = findViewById(R.id.edtFeasibility);
 //        final EditText txtId;
-        final EditText txtIdeaTitle = findViewById(R.id.edtIdeaTitle);
-        final EditText txtLocationSite = findViewById(R.id.edtLocationSite);
+        final TextView txtIdeaTitle = findViewById(R.id.edtIdeaTitle);
+        final TextView txtLocationSite = findViewById(R.id.edtLocationSite);
         final CheckBox chkMySelf = findViewById(R.id.cbxMyself);
         final CheckBox chkOther = findViewById(R.id.cbxOther);
 //        final CheckBox chkPending = findViewById(R.id.cbxP);
         final CheckBox chkPremium1Checked = findViewById(R.id.cbxPremium1);
         final CheckBox chkPremium2Checked = findViewById(R.id.cbxPremium2);
         final CheckBox chkPremium3Checked = findViewById(R.id.cbxPremium3);
-        final EditText txtProblem = findViewById(R.id.edtProblem);
-        final EditText txtSolution = findViewById(R.id.edtSolution);
-        final EditText txtSolutionTriedDesc = findViewById(R.id.edtSolutionTriedDesc);
+        final TextView txtProblem = findViewById(R.id.edtProblem);
+        final TextView txtSolution = findViewById(R.id.edtSolution);
+        final TextView txtSolutionTriedDesc = findViewById(R.id.edtSolutionTriedDesc);
 //        final EditText txtTitle = findViewById(R.id.txtTi);
         final CheckBox chkTried1Checked = findViewById(R.id.cbxTried1);
         final CheckBox chkTried2Checked = findViewById(R.id.cbxTried2);
@@ -72,35 +75,35 @@ public class ReviewerIdea extends AppCompatActivity {
                     @Override
                     public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                         List<Idea> ideaList = queryDocumentSnapshots.toObjects(Idea.class);
-                        if(ideaList.size() != 1) {
+                        if (ideaList.size() != 1) {
                             String errorString = String.format("There were %d documents found with id: %d", ideaList.size(), id);
                             Log.e(TAG, errorString);
                             return;
                         }
                         Idea idea = ideaList.get(0);
 
-                chkAdv1Checked.setChecked(idea.isAdv1Checked());
-                chkAdv2Checked.setChecked(idea.isAdv2Checked());
-                chkAdv3Checked.setChecked(idea.isAdv3Checked());
-                chkAdv4Checked.setChecked(idea.isAdv4Checked());
+                        chkAdv1Checked.setChecked(idea.isAdv1Checked());
+                        chkAdv2Checked.setChecked(idea.isAdv2Checked());
+                        chkAdv3Checked.setChecked(idea.isAdv3Checked());
+                        chkAdv4Checked.setChecked(idea.isAdv4Checked());
 //                txtAuthor.setText(idea.getAuthor());
-//                txtDescription.setText(idea.getDescription());
-//                txtFeasibility.setText(idea.getFeasibility());
+//                txtDescription.setText(idea.getDescription())
+                        txtFeasibility.setText(idea.getFeasibility());
 //                txtId.setText(idea.getId().toString());
-                txtIdeaTitle.setText(idea.getIdeaTitle());
-                txtLocationSite.setText(idea.getLocationSite());
-                chkMySelf.setChecked(idea.isMySelf());
-                chkOther.setChecked(idea.isOther());
+                        txtIdeaTitle.setText(idea.getIdeaTitle());
+                        txtLocationSite.setText(idea.getLocationSite());
+                        chkMySelf.setChecked(idea.isMySelf());
+                        chkOther.setChecked(idea.isOther());
 //                chkPending.setChecked(idea.isPending());
-                chkPremium1Checked.setChecked(idea.isPremium1Checked());
-                chkPremium2Checked.setChecked(idea.isPremium2Checked());
-                chkPremium3Checked.setChecked(idea.isPremium3Checked());
-                txtProblem.setText(idea.getProblem());
-                txtSolution.setText(idea.getSolution());
-                txtSolutionTriedDesc.setText(idea.getSolutionTriedDesc());
+                        chkPremium1Checked.setChecked(idea.isPremium1Checked());
+                        chkPremium2Checked.setChecked(idea.isPremium2Checked());
+                        chkPremium3Checked.setChecked(idea.isPremium3Checked());
+                        txtProblem.setText(idea.getProblem());
+                        txtSolution.setText(idea.getSolution());
+                        txtSolutionTriedDesc.setText(idea.getSolutionTriedDesc());
 //                txtTitle.setText(idea.getTitle());
-                chkTried1Checked.setChecked(idea.isTried1Checked());
-                chkTried2Checked.setChecked(idea.isTried2Checked());
+                        chkTried1Checked.setChecked(idea.isTried1Checked());
+                        chkTried2Checked.setChecked(idea.isTried2Checked());
 
                     }
                 })
@@ -126,45 +129,45 @@ public class ReviewerIdea extends AppCompatActivity {
             }
         });
 
-        /* todo uncomment when view merged
-        final Button btnApproveIdea;
+        final Button btnApproveIdea = findViewById(R.id.btnApproveIdea);
         btnApproveIdea.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 ideas.whereEqualTo("id", id).get()
-                    .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
-                        @Override
-                        public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-                            List<DocumentSnapshot> ideaList = queryDocumentSnapshots.getDocuments();
-                            if(ideaList.size() != 1) {
-                                String errorString = String.format("There were %d documents found with id: %d", ideaList.size(), id);
-                                Log.w(TAG, errorString);
-                                return;
-                            }
-                            final String docId = ideaList.get(0).getId();
-                            ideas.document(docId).update("pending", pending.APPROVED)
-                                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                                    @Override
-                                    public void onSuccess(Void aVoid) {
-                                        Log.d(TAG, "Document " + docId + " successfully updated");
-                                    }
-                                }).addOnFailureListener(new OnFailureListener() {
-                                @Override
-                                public void onFailure(@NonNull Exception e) {
-                                    Log.w(TAG, "Document " + docId + " failed to update");
-                                    Log.w(TAG, e.getMessage());
+                        .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                            @Override
+                            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                                List<DocumentSnapshot> ideaList = queryDocumentSnapshots.getDocuments();
+                                if (ideaList.size() != 1) {
+                                    String errorString = String.format("There were %d documents found with id: %d", ideaList.size(), id);
+                                    Log.w(TAG, errorString);
+                                    return;
                                 }
-                            });
+                                final String docId = ideaList.get(0).getId();
+                                ideas.document(docId).update("pending", Pending.APPROVED.ordinal())
+                                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                            @Override
+                                            public void onSuccess(Void aVoid) {
+                                                Log.d(TAG, "Document " + docId + " successfully updated");
+                                            }
+                                        }).addOnFailureListener(new OnFailureListener() {
+                                    @Override
+                                    public void onFailure(@NonNull Exception e) {
+                                        Log.w(TAG, "Document " + docId + " failed to update");
+                                        Log.w(TAG, e.getMessage());
+                                    }
+                                });
 
-                        }
-                    })
-                    .addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            Log.w(TAG, "Failed to connect to db");
-                    });
+                            }
+                        })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Log.w(TAG, "Failed to connect to db");
+                            }
+                        });
+                finish();
             }
         });
-         */
     }
 }
