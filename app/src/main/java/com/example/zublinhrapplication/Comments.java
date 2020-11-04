@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.zublinhrapplication.model.Comment;
+import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.CollectionReference;
@@ -24,6 +25,7 @@ import java.util.List;
 public class Comments extends AppCompatActivity {
 
     static final private String TAG = "comments";
+    private FirestoreRecyclerAdapter adapter; //For list of comments
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +42,8 @@ public class Comments extends AppCompatActivity {
         final FirebaseFirestore db = FirebaseFirestore.getInstance(); //access database
         final Button btnComment = (Button) findViewById(R.id.post);//interact with button
         final CollectionReference comments = db.collection("comments"); //table in database called comments
+
+
 
         btnComment.setOnClickListener(new View.OnClickListener() {
             @Override
