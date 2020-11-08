@@ -113,7 +113,11 @@
     <string name="strPasswordForUser">Password Of User:</string>
     <string name="strSubmit">Submit</string>
     <string name="strMustEnterAccountType">Error: Must Enter Account Type.</string>
-    <string name="strAccountSucessfullyCreated">Account Had Been Created Sucessfully.</string>
+    <string name="strAccountSucessfullyCreated">Account Had Been Created Successfully.</string>
+    <string name="strIDNo">ID No.: </string>
+    <string name="strAuthor">Author: </string>
+    <string name="strDescription">Description: </string>
+    <string name="strComment">Comment:</string>
     <string-array name="arAccountType">
         <item>Employee</item>
         <item>Reviewer</item>

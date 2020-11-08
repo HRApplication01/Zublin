@@ -2,15 +2,29 @@ package com.example.zublinhrapplication;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.zublinhrapplication.model.Comment;
+import com.example.zublinhrapplication.model.Pending;
+import com.example.zublinhrapplication.model.ShortIdea;
+import com.example.zublinhrapplication.viewholder.CommentViewHolder;
+import com.example.zublinhrapplication.viewholder.ShortIdeaViewHolder;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
+import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.firebase.ui.firestore.SnapshotParser;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.CollectionReference;
@@ -44,6 +58,50 @@ public class Comments extends AppCompatActivity {
         final FirebaseFirestore db = FirebaseFirestore.getInstance(); //access database
         final Button btnComment = (Button) findViewById(R.id.post);//interact with button
         final CollectionReference comments = db.collection("comments"); //table in database called comments
+
+        final RecyclerView rvComments = findViewById(R.id.rvComments);
+
+
+        final RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
+        rvComments.setLayoutManager(layoutManager);
+
+        final DividerItemDecoration itemDecoration = new DividerItemDecoration(this, DividerItemDecoration.VERTICAL);
+        itemDecoration.setDrawable(ContextCompat.getDrawable(this,(R.drawable.red_divider)));
+        rvComments.addItemDecoration(itemDecoration);
+
+        Query commentsQuery = comments.whereEqualTo("ideaId", dum_ideaID);
+
+        commentsQuery.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+            @Override
+            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                if (queryDocumentSnapshots.isEmpty()) {
+                    Toast.makeText(getApplicationContext(), R.string.strNoIdeasFound, Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        FirestoreRecyclerOptions<Comment> options = new FirestoreRecyclerOptions.Builder<Comment>().setQuery(commentsQuery, Comment.class).build();
+
+        adapter = new FirestoreRecyclerAdapter<Comment, CommentViewHolder>(options) {
+            @Override
+            public void onBindViewHolder(@NonNull CommentViewHolder holder, int position, @NonNull Comment model) {
+                holder.txtCommentUsername.setText(model.getAuthor());
+                holder.txtCommentID.setText("" + model.getId());
+                holder.txtCommentComment.setText(model.getComments());
+            }
+
+            @NonNull
+            @Override
+            public CommentViewHolder onCreateViewHolder(@NonNull ViewGroup group, int i) {
+                View view = LayoutInflater.from(group.getContext()).inflate(R.layout.comment_item, group, false);
+                final TextView txtCommentUsername = view.findViewById(R.id.txtCommentUsername);
+                final TextView txtCommentID = view.findViewById(R.id.txtCommentID);
+                final TextView txtCommentComment = view.findViewById(R.id.txtCommentComment);
+                return new CommentViewHolder(view, txtCommentUsername, txtCommentID, txtCommentComment);
+            }
+        };
+
+        rvComments.setAdapter(adapter);
 
 
 
@@ -98,6 +156,18 @@ public class Comments extends AppCompatActivity {
                 Log.e(TAG, "Failed to add document to db");
             }
         });
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        adapter.startListening();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        adapter.stopListening();
     }
 
 }
