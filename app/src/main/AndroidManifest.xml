@@ -14,6 +14,12 @@
             android:name=".Admin"
             android:label="@string/strAdmin" />
         <activity
+            android:name=".UserList"
+            android:label="@string/strUserList" />
+        <activity
+            android:name=".EmployeeIdeaReview"
+            android:label="@string/strEmployeeIdeaReview" />
+        <activity
             android:name=".TermsAndConditions"
             android:label="@string/strTermsAndConditions" />
         <activity
@@ -31,6 +37,9 @@
         <activity
             android:name=".ApprovedIdeaList"
             android:label="@string/strApprovedIdeas" />
+        <activity
+            android:name=".EmployeeIdeaList"
+            android:label="@string/strEmployeeIdeaList" />
         <activity
             android:name=".ReviewerIdea"
             android:label="@string/strReviewerIdeas" />

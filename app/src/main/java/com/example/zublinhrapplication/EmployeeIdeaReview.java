@@ -1,41 +1,34 @@
 package com.example.zublinhrapplication;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.EditText;
-import android.widget.EditText;
 import android.widget.TextView;
 
-import com.example.zublinhrapplication.model.Comment;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.zublinhrapplication.model.Idea;
 import com.example.zublinhrapplication.model.Pending;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.CollectionReference;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
 
-import org.w3c.dom.Text;
-
 import java.util.List;
-import java.util.Locale;
 
-public class ReviewerIdea extends AppCompatActivity {
-    private static final String TAG = "ReviewerIdea";
+public class EmployeeIdeaReview extends AppCompatActivity {
+    private static final String TAG = "EmployeeIdea";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.reviewer_idea_view);
+        setContentView(R.layout.employee_idea_reveiw_view);
 
         final String strId = getIntent().getStringExtra("id");
         final int id = Integer.parseInt(strId);
@@ -115,57 +108,10 @@ public class ReviewerIdea extends AppCompatActivity {
                     }
                 });
 
-
-        final Button btnComment = findViewById(R.id.btnComments);
-        final CollectionReference comments = db.collection("comments");
-        btnComment.setOnClickListener(new View.OnClickListener() {
+        final Button btnCancel = findViewById(R.id.btnCancel);
+        btnCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent commentView = new Intent(v.getContext(), Comments.class);
-                commentView.putExtra("username", username);
-                commentView.putExtra("ideaId", strId);
-                commentView.putExtra("name", name);
-                startActivity(commentView);
-            }
-        });
-
-        final Button btnApproveIdea = findViewById(R.id.btnApproveIdea);
-        btnApproveIdea.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ideas.whereEqualTo("id", id).get()
-                        .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
-                            @Override
-                            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-                                List<DocumentSnapshot> ideaList = queryDocumentSnapshots.getDocuments();
-                                if (ideaList.size() != 1) {
-                                    String errorString = String.format("There were %d documents found with id: %d", ideaList.size(), id);
-                                    Log.w(TAG, errorString);
-                                    return;
-                                }
-                                final String docId = ideaList.get(0).getId();
-                                ideas.document(docId).update("pending", Pending.APPROVED.ordinal())
-                                        .addOnSuccessListener(new OnSuccessListener<Void>() {
-                                            @Override
-                                            public void onSuccess(Void aVoid) {
-                                                Log.d(TAG, "Document " + docId + " successfully updated");
-                                            }
-                                        }).addOnFailureListener(new OnFailureListener() {
-                                    @Override
-                                    public void onFailure(@NonNull Exception e) {
-                                        Log.w(TAG, "Document " + docId + " failed to update");
-                                        Log.w(TAG, e.getMessage());
-                                    }
-                                });
-
-                            }
-                        })
-                        .addOnFailureListener(new OnFailureListener() {
-                            @Override
-                            public void onFailure(@NonNull Exception e) {
-                                Log.w(TAG, "Failed to connect to db");
-                            }
-                        });
                 finish();
             }
         });

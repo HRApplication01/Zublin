@@ -17,6 +17,7 @@ public class Employee extends AppCompatActivity {
         final Button btnMyIdea = (Button) findViewById(R.id.btnMyIdea);
         final Button btnInspired = (Button) findViewById(R.id.btnInspired);
         final Button btnProfile = (Button) findViewById(R.id.btnProfile);
+        final Button btnViewEditIdeas = (Button) findViewById(R.id.btnViewEditIdeas);
 
         btnMyIdea.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -42,6 +43,17 @@ public class Employee extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //todo
+            }
+        });
+        btnViewEditIdeas.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent switchToEmployeeIdeaListView = new Intent(v.getContext(), EmployeeIdeaList.class);
+                String username = getIntent().getStringExtra("username");
+                String name = getIntent().getStringExtra("name");
+                switchToEmployeeIdeaListView.putExtra("username", username);
+                switchToEmployeeIdeaListView.putExtra("name", name);
+                startActivity(switchToEmployeeIdeaListView);
             }
         });
     }

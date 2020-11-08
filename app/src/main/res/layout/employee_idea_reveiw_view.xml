@@ -221,26 +221,14 @@
                 android:text="@string/strPremium3" />
 
             <Button
-                android:id="@+id/btnComments"
+                android:id="@+id/btnCancel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/button_shape"
-                android:text="@string/strComments"
+                android:text="@string/strCancel"
                 android:textColor="@color/buttonText" />
             <!--just to space buttons, not an actual usable field-->
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="2.5sp"/>
 
-            <Button
-                android:id="@+id/btnApproveIdea"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/button_shape"
-                android:text="@string/strApproveIdeas"
-                android:textColor="@color/buttonText" />
         </LinearLayout>
     </ScrollView>
 

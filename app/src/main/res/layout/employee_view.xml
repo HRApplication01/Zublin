@@ -41,6 +41,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnInspired" />
 
+    <Button
+        android:id="@+id/btnViewEditIdeas"
+        android:layout_marginTop="40dp"
+        android:layout_width="257dp"
+        android:layout_height="70dp"
+        android:background="@drawable/button_shape"
+        android:text="@string/strCurrentIdeas"
+        android:textColor="@color/buttonText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnProfile" />
+
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
@@ -51,4 +63,5 @@
         app:layout_constraintStart_toStartOf="@+id/btnMyIdea"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/besser" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
