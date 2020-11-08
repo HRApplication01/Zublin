@@ -42,6 +42,18 @@
         app:layout_constraintStart_toStartOf="@+id/btnAprrovedIdeas"
         app:layout_constraintTop_toBottomOf="@+id/btnAprrovedIdeas" />
 
+    <Button
+        android:id="@+id/btnViewUsers"
+        android:layout_width="257dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/button_shape"
+        android:text="@string/strViewUsers"
+        android:textColor="@color/buttonText"
+        app:layout_constraintEnd_toEndOf="@+id/btnAddAdminUsers"
+        app:layout_constraintStart_toStartOf="@+id/btnAddAdminUsers"
+        app:layout_constraintTop_toBottomOf="@+id/btnAddAdminUsers" />
+
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="wrap_content"

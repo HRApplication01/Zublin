@@ -17,6 +17,7 @@ public class Admin extends AppCompatActivity {
         final Button btnApprovedIdeas = (Button) findViewById(R.id.btnAprrovedIdeas);
         final Button btnPendingIdeas = (Button) findViewById(R.id.btnPendingIdeas);
         final Button btnAddAdminUsers = (Button) findViewById(R.id.btnAddAdminUsers);
+        final Button btnViewUsers = (Button) findViewById(R.id.btnViewUsers);
 
         btnApprovedIdeas.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,6 +47,18 @@ public class Admin extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(v.getContext(), AddAdminUser.class);
+                String username = getIntent().getStringExtra("username");
+                String name = getIntent().getStringExtra("name");
+                i.putExtra("username", username);
+                i.putExtra("name", name);
+                startActivity(i);
+            }
+        });
+
+        btnViewUsers.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(v.getContext(), UserList.class);
                 String username = getIntent().getStringExtra("username");
                 String name = getIntent().getStringExtra("name");
                 i.putExtra("username", username);

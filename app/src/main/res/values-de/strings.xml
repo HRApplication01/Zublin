@@ -79,4 +79,11 @@
     <string name="strNoIdeasFound">No Ideas Found: Empty List</string>
     <string name="strEmployeeIdeaList">Employee Ideas</string>
     <string name="strEmployeeIdeaReview">Employee Idea Review</string>
+    <string name="strNoUsersFound">No Users Found: Empty List</string>
+    <string name="strEmployee">Employee</string>
+    <string name="strReviewer">Reviewer</string>
+    <string name="strTrue">True</string>
+    <string name="strFalse">False</string>
+    <string name="strViewUsers">View Users / Change Permissions</string>
+    <string name="strUserList">List Of Users</string>
 </resources>
