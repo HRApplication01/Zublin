@@ -86,4 +86,21 @@
     <string name="strFalse">False</string>
     <string name="strViewUsers">View Users / Change Permissions</string>
     <string name="strUserList">List Of Users</string>
+    <string name="strEditUser">Edit User</string>
+    <string name="strApproveUser">Approved User</string>
+    <string name="strUserApproved">Is This User Approved?</string>
+    <string name="strYes">Yes</string>
+    <string name="strNo">No</string>
+    <string name="strDeleteUser">Delete User</string>
+    <string name="strCancelChanges">Cancel Changes</string>
+    <string name="strSubmitChanges">Submit Changes</string>
+    <string name="strAccountType">Account Type:</string>
+    <string name="strUserName">Name Of User:</string>
+    <string name="strApprovedUser">Error: User Must Either Be Approved Or Not Approved.</string>
+    <string name="strNameValid">Error: User Must Have Valid Name.</string>
+    <string-array name="arAccountType">
+        <item>Employee</item>
+        <item>Reviewer</item>
+        <item>Admin</item>
+    </string-array>
 </resources>

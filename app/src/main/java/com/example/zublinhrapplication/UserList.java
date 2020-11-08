@@ -93,16 +93,17 @@ public class UserList extends AppCompatActivity {
                 final TextView txtName = view.findViewById(R.id.txtName);
                 final TextView txtUsername = view.findViewById(R.id.txtUsername);
                 final TextView txtApprovedUser = view.findViewById(R.id.txtApprovedUser);
-//                view.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View v) {
-//                        Log.d(TAG, "Clicked");
-//                        Intent intent = new Intent(v.getContext(), UserReview.class);
-//                        intent.putExtra("name", name);
-//                        intent.putExtra("username", username);
-//                        startActivity(intent);
-//                    }
-//                });
+                view.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Log.d(TAG, "Clicked");
+                        Intent intent = new Intent(v.getContext(), EditUser.class);
+                        intent.putExtra("name", name);
+                        intent.putExtra("username", username);
+                        intent.putExtra("userInfo", txtUsername.getText().toString());
+                        startActivity(intent);
+                    }
+                });
                 return new ShortUserViewHolder(view, txtAccountType, txtName, txtUsername, txtApprovedUser);
             }
         };
