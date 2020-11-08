@@ -98,6 +98,11 @@
     <string name="strUserName">Name Of User:</string>
     <string name="strApprovedUser">Error: User Must Either Be Approved Or Not Approved.</string>
     <string name="strNameValid">Error: User Must Have Valid Name.</string>
+    <string name="strAddUser">Add User</string>
+    <string name="strPasswordForUser">Password Of User:</string>
+    <string name="strSubmit">Submit</string>
+    <string name="strMustEnterAccountType">Error: Must Enter Account Type.</string>
+    <string name="strAccountSucessfullyCreated">Account Had Been Created Sucessfully.</string>
     <string-array name="arAccountType">
         <item>Employee</item>
         <item>Reviewer</item>
