@@ -214,4 +214,38 @@ public class EmployeeIdea extends AppCompatActivity {
         });
 
     }
+
+    public static boolean checkValidity(boolean pass, boolean mySelf, boolean other, String ideaTitle, String locationSite, String problem, String solution, String feasibility, String solutionTriedDesc, boolean adv1Checked, boolean adv2Checked, boolean adv3Checked, boolean adv4Checked, boolean tried1Checked, boolean tried2Checked, boolean premium1Checked, boolean premium2Checked, boolean premium3Checked) {
+        if (!mySelf && !other) {
+            pass = false;
+        }
+        if (ideaTitle.isEmpty()) {
+            pass = false;
+        }
+        if (locationSite.isEmpty()) {
+            pass = false;
+        }
+        if (problem.isEmpty()) {
+            pass = false;
+        }
+        if (solution.isEmpty()) {
+            pass = false;
+        }
+        if (feasibility.isEmpty()) {
+            pass = false;
+        }
+        if (!adv1Checked && !adv2Checked && !adv3Checked && !adv4Checked) {
+            pass = false;
+        }
+        if (!tried1Checked && !tried2Checked) {
+            pass = false;
+        }
+        if (tried1Checked && solutionTriedDesc.isEmpty()) {
+            pass = false;
+        }
+        if (!premium1Checked && !premium2Checked && !premium3Checked) {
+            pass = false;
+        }
+        return pass;
+    }
 }
