@@ -24,8 +24,11 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="220dp"
-        app:layout_constraintTop_toBottomOf="@+id/txtCreateIdea"
-        tools:layout_editor_absoluteX="16dp">
+        android:layout_marginBottom="115dp"
+        app:layout_constraintBottom_toTopOf="@id/btnConfirm"
+        app:layout_constraintEnd_toEndOf="@id/btnConfirm"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtCreateIdea">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -157,29 +160,31 @@
                 android:hint="@string/strSolutionDefinitionDesc"
                 android:inputType="textPersonName" />
 
-            <Button
-                android:id="@+id/btnConfirm"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/button_shape"
-                android:text="@string/strConfirm"
-                android:textColor="@color/buttonText" />
-<!--just to space buttons, not an actual usable field-->
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="2.5sp"/>
-
-            <Button
-                android:id="@+id/btnCancel"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/button_shape"
-                android:text="@string/strCancel"
-                android:textColor="@color/buttonText" />
         </LinearLayout>
     </ScrollView>
+
+    <Button
+        android:id="@+id/btnConfirm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/button_shape"
+        android:text="@string/strConfirm"
+        android:textColor="@color/buttonText"
+        app:layout_constraintBottom_toTopOf="@+id/btnCancel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btnCancel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button_shape"
+        android:text="@string/strCancel"
+        android:textColor="@color/buttonText"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/imageView3"

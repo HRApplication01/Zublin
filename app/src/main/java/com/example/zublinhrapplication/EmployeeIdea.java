@@ -197,12 +197,9 @@ public class EmployeeIdea extends AppCompatActivity {
                                     //add user to the database
                                     ideasCollection.add(idea);
                                     //switch to Employee Menu Page
-                                    Intent switchToEmployee = new Intent(v.getContext(), Employee.class);
-                                    switchToEmployee.putExtra("username", username);
-                                    switchToEmployee.putExtra("name", name);
-                                    id = 0;
+
                                     done = false;
-                                    startActivity(switchToEmployee);
+                                    finish();
                                 }
                             });
                 }
@@ -212,14 +209,7 @@ public class EmployeeIdea extends AppCompatActivity {
         btnCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                //switch to Employee Menu Page
-                Intent switchToEmployee = new Intent(v.getContext(), Employee.class);
-                String username = getIntent().getStringExtra("username");
-                String name = getIntent().getStringExtra("name");
-                switchToEmployee.putExtra("username", username);
-                switchToEmployee.putExtra("name", name);
-                startActivity(switchToEmployee);
+                finish();
             }
         });
 

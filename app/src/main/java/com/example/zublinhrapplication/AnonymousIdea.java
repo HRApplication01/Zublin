@@ -167,10 +167,7 @@ public class AnonymousIdea extends AppCompatActivity {
                                     //add user to the database
                                     ideasCollection.add(idea);
                                     //switch to Employee Menu Page
-                                    Intent switchToLogin = new Intent(v.getContext(), UserLogin.class);
-                                    id = 0;
-                                    done = false;
-                                    startActivity(switchToLogin);
+                                    finish();
                                 }
                             });
                 }
@@ -182,8 +179,7 @@ public class AnonymousIdea extends AppCompatActivity {
             public void onClick(View v) {
 
                 //switch to Employee Menu Page
-                Intent switchToLogin = new Intent(v.getContext(), UserLogin.class);
-                startActivity(switchToLogin);
+                finish();
             }
         });
 
