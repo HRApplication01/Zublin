@@ -35,9 +35,7 @@ public class EditUser extends AppCompatActivity {
         setContentView(R.layout.edit_user_view);
 
         final String strUserName = getIntent().getStringExtra("userInfo");
-        if (strUserName.isEmpty()) {
-            int shit = 1;
-        }
+
         //setup drop down list first so I don't forget
         final Spinner staticSpinner = (Spinner) findViewById(R.id.spinnerAccountType);
         // Create an ArrayAdapter using the string array and a default spinner

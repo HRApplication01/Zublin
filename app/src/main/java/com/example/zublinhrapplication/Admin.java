@@ -14,6 +14,8 @@ public class Admin extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.admin_view);
 
+        final UserInfo userInfo = new UserInfo(getIntent());
+
         final Button btnApprovedIdeas = (Button) findViewById(R.id.btnAprrovedIdeas);
         final Button btnPendingIdeas = (Button) findViewById(R.id.btnPendingIdeas);
         final Button btnAddAdminUsers = (Button) findViewById(R.id.btnAddAdminUsers);
@@ -23,10 +25,7 @@ public class Admin extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(v.getContext(), ApprovedIdeaList.class);
-                String username = getIntent().getStringExtra("username");
-                String name = getIntent().getStringExtra("name");
-                i.putExtra("username", username);
-                i.putExtra("name", name);
+                userInfo.setString(i);
                 startActivity(i);
             }
         });
@@ -35,10 +34,7 @@ public class Admin extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(v.getContext(), PendingIdeaList.class);
-                String username = getIntent().getStringExtra("username");
-                String name = getIntent().getStringExtra("name");
-                i.putExtra("username", username);
-                i.putExtra("name", name);
+                userInfo.setString(i);
                 startActivity(i);
             }
         });
@@ -47,10 +43,7 @@ public class Admin extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(v.getContext(), AddAdminUser.class);
-                String username = getIntent().getStringExtra("username");
-                String name = getIntent().getStringExtra("name");
-                i.putExtra("username", username);
-                i.putExtra("name", name);
+                userInfo.setString(i);
                 startActivity(i);
             }
         });
@@ -59,10 +52,7 @@ public class Admin extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(v.getContext(), UserList.class);
-                String username = getIntent().getStringExtra("username");
-                String name = getIntent().getStringExtra("name");
-                i.putExtra("username", username);
-                i.putExtra("name", name);
+                userInfo.setString(i);
                 startActivity(i);
             }
         });

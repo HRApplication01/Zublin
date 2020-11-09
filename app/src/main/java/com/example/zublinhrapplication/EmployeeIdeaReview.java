@@ -30,12 +30,11 @@ public class EmployeeIdeaReview extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.employee_idea_reveiw_view);
 
+        final UserInfo userInfo = new UserInfo(getIntent());
+
         final String strId = getIntent().getStringExtra("id");
         final int id = Integer.parseInt(strId);
         Log.d(TAG, strId);
-
-        final String name = getIntent().getStringExtra("name");
-        final String username = getIntent().getStringExtra("username");
 
 
         //todo do feasibility and add pending status

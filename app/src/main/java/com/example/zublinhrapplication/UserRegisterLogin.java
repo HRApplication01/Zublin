@@ -42,6 +42,8 @@ public class UserRegisterLogin extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.user_register_login_view);
 
+        final UserInfo userInfo = new UserInfo(getIntent());
+
         //setup button
         final Button btnRegister = (Button) findViewById(R.id.btnRegister);
         final TextView txtTermsAndConditions = (TextView) findViewById(R.id.txtTermsAndConditions);
@@ -134,8 +136,7 @@ public class UserRegisterLogin extends AppCompatActivity {
                                     name = "";
                                     username = "";
                                     password = "";
-                                    Intent switchToLogin = new Intent(v.getContext(), UserLogin.class);
-                                    startActivity(switchToLogin);
+                                    finish();
                                 }
                             }
                         }

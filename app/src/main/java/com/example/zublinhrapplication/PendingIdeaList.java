@@ -18,6 +18,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.zublinhrapplication.model.Pending;
 import com.example.zublinhrapplication.model.ShortIdea;
+import com.example.zublinhrapplication.model.User;
 import com.example.zublinhrapplication.viewholder.ShortIdeaViewHolder;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
@@ -39,8 +40,7 @@ public class PendingIdeaList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.short_idea_list_view);
 
-        final String username = getIntent().getStringExtra("username");
-        final String name = getIntent().getStringExtra("name");
+        final UserInfo userInfo = new UserInfo(getIntent());
 
         final FirebaseFirestore db = FirebaseFirestore.getInstance();
 
@@ -113,8 +113,7 @@ public class PendingIdeaList extends AppCompatActivity {
                         Log.d(TAG, "Clicked");
                         Intent intent = new Intent(v.getContext(), ReviewerIdea.class);
                         intent.putExtra("id", txtId.getText());
-                        intent.putExtra("name", name);
-                        intent.putExtra("username", username);
+                        userInfo.setString(intent);
                         startActivity(intent);
                     }
                 });

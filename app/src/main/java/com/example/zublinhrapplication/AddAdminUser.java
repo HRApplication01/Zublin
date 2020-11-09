@@ -30,6 +30,8 @@ public class AddAdminUser extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.add_admin_user_view);
 
+        final UserInfo userInfo = new UserInfo(getIntent());
+
         final Button btnSubmit = (Button) findViewById(R.id.btnSubmitChanges);
         final Button btnCancel = (Button) findViewById(R.id.btnCancelChanges);
 

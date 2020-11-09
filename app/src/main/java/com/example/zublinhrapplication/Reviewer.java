@@ -25,6 +25,8 @@ public class Reviewer extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.reviewer_view);
 
+        final UserInfo userInfo = new UserInfo(getIntent());
+
         final Button btnApprovedIdeas = (Button) findViewById(R.id.btnAprrovedIdeas);
         final Button btnPendingIdeas = (Button) findViewById(R.id.btnPendingIdeas);
 
@@ -32,10 +34,7 @@ public class Reviewer extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(v.getContext(), ApprovedIdeaList.class);
-                String username = getIntent().getStringExtra("username");
-                String name = getIntent().getStringExtra("name");
-                i.putExtra("username", username);
-                i.putExtra("name", name);
+                userInfo.setString(i);
                 startActivity(i);
             }
         });
@@ -44,10 +43,7 @@ public class Reviewer extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(v.getContext(), PendingIdeaList.class);
-                String username = getIntent().getStringExtra("username");
-                String name = getIntent().getStringExtra("name");
-                i.putExtra("username", username);
-                i.putExtra("name", name);
+                userInfo.setString(i);
                 startActivity(i);
             }
         });
