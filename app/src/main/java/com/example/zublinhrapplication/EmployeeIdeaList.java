@@ -38,8 +38,7 @@ public class EmployeeIdeaList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.short_idea_list_view);
 
-        final String username = getIntent().getStringExtra("username");
-        final String name = getIntent().getStringExtra("name");
+        final UserInfo userInfo = new UserInfo(getIntent());
 
         final RecyclerView rvEmployeeIdeas = findViewById(R.id.rvShortIdeas);
         rvEmployeeIdeas.setHasFixedSize(true);
@@ -54,7 +53,8 @@ public class EmployeeIdeaList extends AppCompatActivity {
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         CollectionReference ideasRef = db.collection("ideas");
-        Query ideasQuery = ideasRef.whereEqualTo("author", username);
+        Query ideasQuery = ideasRef.whereEqualTo("author", userInfo.getUsername());
+        Log.d(TAG, (userInfo.getUsername() == null) + "");
 
         ideasQuery.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
             @Override
@@ -104,8 +104,7 @@ public class EmployeeIdeaList extends AppCompatActivity {
                         Log.d(TAG, "Clicked");
                         Intent intent = new Intent(v.getContext(), EmployeeIdeaReview.class);
                         intent.putExtra("id", txtId.getText());
-                        intent.putExtra("name", name);
-                        intent.putExtra("username", username);
+                        userInfo.setString(intent);
                         startActivity(intent);
                     }
                 });

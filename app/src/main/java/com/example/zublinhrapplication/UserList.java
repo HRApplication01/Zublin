@@ -38,8 +38,8 @@ public class UserList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.short_idea_list_view);
 
-        final String username = getIntent().getStringExtra("username");
-        final String name = getIntent().getStringExtra("name");
+        final UserInfo userInfo = new UserInfo(getIntent());
+
 
         final RecyclerView rvUserList = findViewById(R.id.rvShortIdeas);
         rvUserList.setHasFixedSize(true);
@@ -100,8 +100,7 @@ public class UserList extends AppCompatActivity {
                     public void onClick(View v) {
                         Log.d(TAG, "Clicked");
                         Intent intent = new Intent(v.getContext(), EditUser.class);
-                        intent.putExtra("name", name);
-                        intent.putExtra("username", username);
+                        userInfo.setString(intent);
                         intent.putExtra("userInfo", txtUsername.getText().toString());
                         startActivity(intent);
                     }

@@ -37,13 +37,11 @@ public class ReviewerIdea extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.reviewer_idea_view);
 
+        final UserInfo userInfo = new UserInfo(getIntent());
+
         final String strId = getIntent().getStringExtra("id");
         final int id = Integer.parseInt(strId);
         Log.d(TAG, strId);
-
-        final String name = getIntent().getStringExtra("name");
-        final String username = getIntent().getStringExtra("username");
-
 
         //todo do feasibility and add pending status
         final CheckBox chkAdv1Checked = findViewById(R.id.cbxAdv1);
@@ -122,9 +120,8 @@ public class ReviewerIdea extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent commentView = new Intent(v.getContext(), Comments.class);
-                commentView.putExtra("username", username);
                 commentView.putExtra("ideaId", strId);
-                commentView.putExtra("name", name);
+                userInfo.setString(commentView);
                 startActivity(commentView);
             }
         });

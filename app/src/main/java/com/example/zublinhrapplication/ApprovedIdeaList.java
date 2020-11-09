@@ -39,6 +39,8 @@ public class ApprovedIdeaList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.short_idea_list_view);
 
+        final UserInfo userInfo = new UserInfo(getIntent());
+
         final RecyclerView rvApprovedIdeas = findViewById(R.id.rvShortIdeas);
         rvApprovedIdeas.setHasFixedSize(true);
 

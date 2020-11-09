@@ -46,13 +46,14 @@ public class Comments extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.comments_view);
 
+        final UserInfo userInfo = new UserInfo(getIntent());
+
         //Still working
 
         final String dum = getIntent().getStringExtra("ideaId");
         Log.d(TAG, dum);
         final Long dum_ideaID = Long.parseLong(dum);
         Log.d(TAG, "" + dum_ideaID);
-        final String dum_author = getIntent().getStringExtra("name");
 
 
         final FirebaseFirestore db = FirebaseFirestore.getInstance(); //access database
@@ -123,14 +124,14 @@ public class Comments extends AppCompatActivity {
                             id = idTemp + 1;
                         }
                         inputComment.setText("");
-                        createComment(id, dum_ideaID, dum_author,txtComment);
+                        createComment(id, dum_ideaID, userInfo.getUsername(), txtComment);
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        long id = 1;
-                        inputComment.setText("");
-                        createComment(id, dum_ideaID, dum_author,txtComment);
+                        Log.e(TAG, "could not connect to db");
+                        Toast.makeText(getApplicationContext(), "Could not load comments, retry", Toast.LENGTH_SHORT);
+                        finish();
                     }
                 });
 

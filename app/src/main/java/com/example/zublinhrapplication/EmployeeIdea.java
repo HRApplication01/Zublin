@@ -41,6 +41,8 @@ public class EmployeeIdea extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.employee_idea_view);
 
+        final UserInfo userInfo = new UserInfo(getIntent());
+
         //setup drop down list first so I don't forget
         final Spinner staticSpinner = (Spinner) findViewById(R.id.spinner);
         // Create an ArrayAdapter using the string array and a default spinner
@@ -168,11 +170,10 @@ public class EmployeeIdea extends AppCompatActivity {
                                         id = 0;
                                     }
                                     id++;
-                                    String username = getIntent().getStringExtra("username");
-                                    String name = getIntent().getStringExtra("name");
+
                                     //create document idea object
                                     Map<String, Object> idea = new HashMap<>();
-                                    idea.put("author", name);
+                                    idea.put("author", userInfo.getName());
                                     idea.put("description", solution);
                                     idea.put("id", id);
                                     idea.put("pending", 0);

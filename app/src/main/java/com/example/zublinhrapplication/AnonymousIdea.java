@@ -35,6 +35,8 @@ public class AnonymousIdea extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.anonymous_idea_view);
 
+        final UserInfo userInfo = new UserInfo(getIntent());
+
         //setup drop down list first so I don't forget
         final Spinner staticSpinner = (Spinner) findViewById(R.id.spinner);
         // Create an ArrayAdapter using the string array and a default spinner
