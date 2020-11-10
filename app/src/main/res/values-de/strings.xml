@@ -107,6 +107,9 @@
     <string name="strAuthor">Author: </string>
     <string name="strDescription">Description: </string>
     <string name="strComment">Comment:</string>
+    <string name="strApproveStatus">ApproveStatus</string>
+    <string name="strNameColon">Name:</string>
+    <string name="strUsernameColon">Username:</string>
     <string-array name="arAccountType">
         <item>Employee</item>
         <item>Reviewer</item>
