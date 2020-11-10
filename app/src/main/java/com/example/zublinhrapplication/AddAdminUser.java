@@ -122,4 +122,21 @@ public class AddAdminUser extends AppCompatActivity {
             }
         });
     }
+
+    public static boolean approveAddUser(boolean pass, String nameLocal, String usernameLocal, String passwordLocal, String accountType) {
+
+        if (nameLocal.isEmpty() || usernameLocal.isEmpty() || passwordLocal.isEmpty() || accountType.isEmpty()) {
+            if (nameLocal.isEmpty()) {
+                pass = false;
+            } else if (usernameLocal.isEmpty()) {
+                pass = false;
+            } else if (passwordLocal.isEmpty()) {
+                pass = false;
+            } else {
+                pass = false;
+            }
+        }
+
+        return pass;
+    }
 }
