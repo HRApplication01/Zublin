@@ -1,22 +1,11 @@
 package com.example.zublinhrapplication;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.Button;
 import android.view.View;
-import android.widget.Toast;
-
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.FirebaseFirestore;
-
-import java.util.HashMap;
-import java.util.Map;
 
 public class Reviewer extends AppCompatActivity {
 
@@ -34,7 +23,7 @@ public class Reviewer extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(v.getContext(), ApprovedIdeaList.class);
-                userInfo.setString(i);
+                userInfo.setIntentStrings(i);
                 startActivity(i);
             }
         });
@@ -43,7 +32,7 @@ public class Reviewer extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(v.getContext(), PendingIdeaList.class);
-                userInfo.setString(i);
+                userInfo.setIntentStrings(i);
                 startActivity(i);
             }
         });

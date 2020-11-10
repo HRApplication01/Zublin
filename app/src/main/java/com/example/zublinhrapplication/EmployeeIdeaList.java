@@ -16,7 +16,6 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.zublinhrapplication.model.Pending;
 import com.example.zublinhrapplication.model.ShortIdea;
 import com.example.zublinhrapplication.viewholder.ShortIdeaViewHolder;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
@@ -104,7 +103,7 @@ public class EmployeeIdeaList extends AppCompatActivity {
                         Log.d(TAG, "Clicked");
                         Intent intent = new Intent(v.getContext(), EmployeeIdeaReview.class);
                         intent.putExtra("id", txtId.getText());
-                        userInfo.setString(intent);
+                        userInfo.setIntentStrings(intent);
                         startActivity(intent);
                     }
                 });

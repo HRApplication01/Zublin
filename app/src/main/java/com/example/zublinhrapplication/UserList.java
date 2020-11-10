@@ -16,17 +16,13 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.zublinhrapplication.model.ShortIdea;
 import com.example.zublinhrapplication.model.User;
 import com.example.zublinhrapplication.viewholder.ShortUserViewHolder;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
-import com.firebase.ui.firestore.SnapshotParser;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.CollectionReference;
-import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
 
 public class UserList extends AppCompatActivity {
@@ -100,7 +96,7 @@ public class UserList extends AppCompatActivity {
                     public void onClick(View v) {
                         Log.d(TAG, "Clicked");
                         Intent intent = new Intent(v.getContext(), EditUser.class);
-                        userInfo.setString(intent);
+                        userInfo.setIntentStrings(intent);
                         intent.putExtra("userInfo", txtUsername.getText().toString());
                         startActivity(intent);
                     }

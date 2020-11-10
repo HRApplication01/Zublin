@@ -5,21 +5,17 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.speech.tts.TextToSpeech;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.zublinhrapplication.model.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-
-import org.w3c.dom.Text;
 
 public class UserLogin extends AppCompatActivity {
 
@@ -85,19 +81,19 @@ public class UserLogin extends AppCompatActivity {
                                     if (existsUser == 1) {
                                         //switch to Employee page
                                         Intent switchToEmployee = new Intent(v.getContext(), Employee.class);
-                                        userInfo.setString(switchToEmployee);
+                                        userInfo.setIntentStrings(switchToEmployee);
                                         startActivity(switchToEmployee);
                                         existsUser = 0;
                                     } else if (existsUser == 2) {
                                         //switch to Reviewer Page
                                         Intent switchToReviewer = new Intent(v.getContext(), Reviewer.class);
-                                        userInfo.setString(switchToReviewer);
+                                        userInfo.setIntentStrings(switchToReviewer);
                                         startActivity(switchToReviewer);
                                         existsUser = 0;
                                     } else if (existsUser == 3) {
                                         //switch to Reviewer Page
                                         Intent switchToAdmin = new Intent(v.getContext(), Admin.class);
-                                        userInfo.setString(switchToAdmin);
+                                        userInfo.setIntentStrings(switchToAdmin);
                                         startActivity(switchToAdmin);
                                         existsUser = 0;
                                     } else if (existsUser == 4) {

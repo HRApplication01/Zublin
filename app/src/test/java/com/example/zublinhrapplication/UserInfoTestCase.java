@@ -1,18 +1,18 @@
 package com.example.zublinhrapplication;
 
-import android.app.Application;
+
 import android.content.Intent;
 
-import androidx.annotation.NonNull;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.ArgumentCaptor;
+import org.mockito.Captor;
+import org.mockito.Mock;
+import org.mockito.runners.MockitoJUnitRunner;
 
-import org.mockito.*;
-
-import com.example.zublinhrapplication.model.Idea;
-
-import junit.framework.TestCase;
-
-import static org.mockito.Matchers.anyString;
-import static org.mockito.Mockito.mock;
+import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.eq;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 /**
@@ -20,25 +20,19 @@ import static org.mockito.Mockito.when;
  *
  * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
  */
-public class UserInfoTestCase extends TestCase {
+@RunWith(MockitoJUnitRunner.class)
+public class UserInfoTestCase{
 
     @Mock
     Intent mockIntent;
 
     @Captor
-    private ArgumentCaptor<String> captorUsername;
+    ArgumentCaptor<String> captorUsername;
 
     @Captor
-    private ArgumentCaptor<String> captorName;
+    ArgumentCaptor<String> captorName;
 
-    public void setUp() {
-        mockIntent = mock(Intent.class);
-    }
-
-    public void tearDown() {
-
-    }
-
+    @Test
     public void testMakeUserInfo() {
         when(mockIntent.getStringExtra("username")).thenReturn("testusername");
         when(mockIntent.getStringExtra("name")).thenReturn("testname");
@@ -48,10 +42,15 @@ public class UserInfoTestCase extends TestCase {
         assertEquals("testname", ui.getName());
     }
 
+    @Test
     public void testSetUserInfo() {
+        UserInfo ui = new UserInfo("testusername", "testname");
+        ui.setIntentStrings(mockIntent);
 
-
-
+        verify(mockIntent).putExtra(eq("username"), captorUsername.capture());
+        verify(mockIntent).putExtra(eq("name"), captorName.capture());
+        assertEquals("testusername", captorUsername.getValue());
+        assertEquals("testname", captorName.getValue());
     }
 
 }

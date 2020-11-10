@@ -25,7 +25,7 @@ public class Admin extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(v.getContext(), ApprovedIdeaList.class);
-                userInfo.setString(i);
+                userInfo.setIntentStrings(i);
                 startActivity(i);
             }
         });
@@ -34,7 +34,7 @@ public class Admin extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(v.getContext(), PendingIdeaList.class);
-                userInfo.setString(i);
+                userInfo.setIntentStrings(i);
                 startActivity(i);
             }
         });
@@ -43,7 +43,7 @@ public class Admin extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(v.getContext(), AddAdminUser.class);
-                userInfo.setString(i);
+                userInfo.setIntentStrings(i);
                 startActivity(i);
             }
         });
@@ -52,7 +52,7 @@ public class Admin extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(v.getContext(), UserList.class);
-                userInfo.setString(i);
+                userInfo.setIntentStrings(i);
                 startActivity(i);
             }
         });
