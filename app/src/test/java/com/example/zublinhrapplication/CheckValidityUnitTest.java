@@ -9,8 +9,6 @@ import junit.framework.TestCase;
  */
 public class CheckValidityUnitTest extends TestCase {
 
-
-
     protected void setUp() {
     }
 
