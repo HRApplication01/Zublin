@@ -16,7 +16,7 @@ public class UserInfo {
         this.name = i.getStringExtra("name");
     }
 
-    public void setString(Intent i) {
+    public void setIntentStrings(Intent i) {
         i.putExtra("username", username);
         i.putExtra("name", name);
     }

@@ -9,25 +9,18 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.EditText;
-import android.widget.EditText;
 import android.widget.TextView;
 
-import com.example.zublinhrapplication.model.Comment;
 import com.example.zublinhrapplication.model.Idea;
 import com.example.zublinhrapplication.model.Pending;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.CollectionReference;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
 
-import org.w3c.dom.Text;
-
 import java.util.List;
-import java.util.Locale;
 
 public class ReviewerIdea extends AppCompatActivity {
     private static final String TAG = "ReviewerIdea";
@@ -121,7 +114,7 @@ public class ReviewerIdea extends AppCompatActivity {
             public void onClick(View v) {
                 Intent commentView = new Intent(v.getContext(), Comments.class);
                 commentView.putExtra("ideaId", strId);
-                userInfo.setString(commentView);
+                userInfo.setIntentStrings(commentView);
                 startActivity(commentView);
             }
         });

@@ -25,7 +25,7 @@ public class Employee extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent switchToEmployeeIdea = new Intent(v.getContext(), EmployeeIdea.class);
-                userInfo.setString(switchToEmployeeIdea);
+                userInfo.setIntentStrings(switchToEmployeeIdea);
                 startActivity(switchToEmployeeIdea);
             }
         });
@@ -48,7 +48,7 @@ public class Employee extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent switchToEmployeeIdeaListView = new Intent(v.getContext(), EmployeeIdeaList.class);
-                userInfo.setString(switchToEmployeeIdeaListView);
+                userInfo.setIntentStrings(switchToEmployeeIdeaListView);
                 startActivity(switchToEmployeeIdeaListView);
             }
         });
