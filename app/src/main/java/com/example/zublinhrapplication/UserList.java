@@ -77,9 +77,9 @@ public class UserList extends AppCompatActivity {
                 holder.txtUsername.setText(model.getUsername());
 
                 if (!model.getApprovedUser()) {
-                    holder.txtApprovedUser.setText(R.string.strTrue);
-                } else {
                     holder.txtApprovedUser.setText(R.string.strFalse);
+                } else {
+                    holder.txtApprovedUser.setText(R.string.strTrue);
                 }
             }
 

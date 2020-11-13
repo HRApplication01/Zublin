@@ -121,6 +121,9 @@
     <string name="strApproveStatus">Approve Status:</string>
     <string name="strNameColon">Name:</string>
     <string name="strUsernameColon">Username:</string>
+    <string name="strPasswordUser">Password of User:</string>
+    <string name="strEditProfile">Edit Profile</string>
+    <string name="strPasswordValid">Error: Must Have Valid Password.</string>
     <string-array name="arAccountType">
         <item>Employee</item>
         <item>Reviewer</item>
