@@ -40,7 +40,9 @@ public class Employee extends AppCompatActivity {
         btnProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //todo
+                Intent switchToUserEditUser = new Intent(v.getContext(), UserEditUser.class);
+                userInfo.setIntentStrings(switchToUserEditUser);
+                startActivity(switchToUserEditUser);
             }
         });
 

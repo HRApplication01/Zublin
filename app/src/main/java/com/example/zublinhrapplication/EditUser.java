@@ -52,6 +52,7 @@ public class EditUser extends AppCompatActivity {
 
         final TextView edtUsername = findViewById(R.id.edtUsername);
         final EditText edtUserName = findViewById(R.id.edtUserName);
+        final EditText edtPassword = findViewById(R.id.edtPassword);
         final CheckBox chkYes = findViewById(R.id.cbxYes);
         chkYes.setChecked(false);
         final CheckBox chkNo = findViewById(R.id.cbxNo);
@@ -67,13 +68,13 @@ public class EditUser extends AppCompatActivity {
                         List<User> userList = queryDocumentSnapshots.toObjects(User.class);
                         Log.d(TAG, "UserList Size = " + userList.size() + " " + strUserName);
                         User user = userList.get(0);
-                        password = user.getPassword();
+                        edtPassword.setText(user.getPassword());
                         edtUsername.setText(user.getUsername());
                         edtUserName.setText(user.getName());
                         if (user.getApprovedUser()) {
                             chkYes.setChecked(true);
                         } else {
-                            chkNo.setChecked(true);
+                            chkNo.setChecked(false);
                         }
                         if (user.getAccountType() == 0) {
                             staticSpinner.setSelection(0);
@@ -118,8 +119,7 @@ public class EditUser extends AppCompatActivity {
                 } else {
                     User user = new User();
                     user.setName(edtUserName.getText().toString());
-                    user.setPassword(password);
-                    password = "";
+                    user.setPassword(edtPassword.getText().toString());
                     user.setUsername(strUserName);
                     if (chkNo.isChecked()) {
                         user.setApprovedUser(false);

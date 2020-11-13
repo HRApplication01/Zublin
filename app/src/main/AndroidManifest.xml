@@ -14,6 +14,9 @@
             android:name=".Admin"
             android:label="@string/strAdmin" />
         <activity
+            android:name=".UserEditUser"
+            android:label="@string/strEditProfile" />
+        <activity
             android:name=".AddAdminUser"
             android:label="@string/strAddUser" />
         <activity

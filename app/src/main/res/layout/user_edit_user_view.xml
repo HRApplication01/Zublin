@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="112dp"
         android:background="@drawable/rectangle_box_design"
-        android:text="@string/strEditUser"
+        android:text="@string/strEditProfile"
         android:textColor="@color/buttonText"
         android:textSize="42sp"
         app:layout_constraintEnd_toEndOf="@id/scrollView"
@@ -32,24 +32,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:weightSum="200">
-            <TextView
-                android:id="@+id/txtUserApproved"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="@string/strUserApproved"
-                android:textSize="20sp" />
 
-            <CheckBox
-                android:id="@+id/cbxYes"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/strYes" />
-
-            <CheckBox
-                android:id="@+id/cbxNo"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/strNo" />
             <TextView
                 android:id="@+id/txtUsername"
                 android:layout_width="match_parent"
@@ -78,34 +61,28 @@
                 android:ems="10"
                 android:hint="@string/strUserName"
                 android:inputType="none" />
+
             <TextView
                 android:id="@+id/txtPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/strPasswordForUser"
                 android:textSize="20sp" />
+
             <EditText
                 android:id="@+id/edtPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="textPassword"
-                android:hint="@string/strPasswordForUser" />
+                android:hint="@string/strPasswordForUser"
+                android:inputType="none" />
+
             <TextView
-                android:id="@+id/txtAccountType"
+                android:id="@+id/textView9"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/strAccountType"
-                android:textSize="20sp" />
-            <Spinner
-                android:id="@+id/spinnerAccountType"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-            <TextView
-                android:id="@+id/textView1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="2.5sp"/>
+                android:textSize="2.5sp" />
+
             <Button
                 android:id="@+id/btnSubmitChanges"
                 android:layout_width="match_parent"
@@ -118,6 +95,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="2.5sp"/>
+
             <Button
                 android:id="@+id/btnCancelChanges"
                 android:layout_width="match_parent"
@@ -130,13 +108,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="2.5sp"/>
-            <Button
-                android:id="@+id/btnDeleteUser"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/button_shape"
-                android:text="@string/strDeleteUser"
-                android:textColor="@color/buttonText" />
             <!--just to space buttons, not an actual usable field-->
 
         </LinearLayout>
