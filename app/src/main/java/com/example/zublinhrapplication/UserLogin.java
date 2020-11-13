@@ -67,7 +67,7 @@ public class UserLogin extends AppCompatActivity {
                                     String passwordText = document.getString("password");
                                     String name = document.getString("name");
                                     boolean approved = document.getBoolean("approvedUser");
-                                    long accountType = document.getLong("accountType");
+                                    long accountType = document.getLong("accountType"); 
                                     if (username.equals(usernameText) && password.equals(passwordText) && approved && accountType == 0) {
                                         existsUser = 1;
                                     } else if (username.equals(usernameText) && password.equals(passwordText) && approved && accountType == 1) {
