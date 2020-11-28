@@ -6,6 +6,11 @@ import android.view.View;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.work.ExistingPeriodicWorkPolicy;
+import androidx.work.PeriodicWorkRequest;
+import androidx.work.WorkManager;
+
+import java.util.concurrent.TimeUnit;
 
 public class Admin extends AppCompatActivity {
 
@@ -13,6 +18,13 @@ public class Admin extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.admin_view);
+
+
+        PeriodicWorkRequest firebaseDBWorkRequest =
+                new PeriodicWorkRequest.Builder(FirebaseDBWorker.class, 15, TimeUnit.MINUTES)
+                        .build();
+        WorkManager.getInstance(this).enqueueUniquePeriodicWork("FirebaseDBWork", ExistingPeriodicWorkPolicy.KEEP, firebaseDBWorkRequest);
+
 
         final UserInfo userInfo = new UserInfo(getIntent());
 

@@ -114,6 +114,10 @@
     <string name="strEditProfile">Edit Profile</string>
     <string name="strPasswordValid">Error: Must Have Valid Password.</string>
     <string name="strAddUsers">Add Users</string>
+    <string name="FirebaseDB">FirebaseDB</string>
+    <string name="FirebaseDBDescription">Notification Channel for FirebaseDB</string>
+    <string name="NewIdea">A new idea has been posted</string>
+    <string name="NewIdeaMessage">%d ideas have been posted</string>
     <string-array name="arAccountType">
         <item>Employee</item>
         <item>Reviewer</item>
