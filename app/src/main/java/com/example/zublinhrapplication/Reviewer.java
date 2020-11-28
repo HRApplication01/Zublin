@@ -1,11 +1,18 @@
 package com.example.zublinhrapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.work.ExistingPeriodicWorkPolicy;
+import androidx.work.OneTimeWorkRequest;
+import androidx.work.PeriodicWorkRequest;
+import androidx.work.WorkManager;
+import androidx.work.WorkRequest;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.view.View;
+
+import java.util.concurrent.TimeUnit;
 
 public class Reviewer extends AppCompatActivity {
 
@@ -18,6 +25,11 @@ public class Reviewer extends AppCompatActivity {
 
         final Button btnApprovedIdeas = (Button) findViewById(R.id.btnAprrovedIdeas);
         final Button btnPendingIdeas = (Button) findViewById(R.id.btnPendingIdeas);
+
+        PeriodicWorkRequest firebaseDBWorkRequest =
+                new PeriodicWorkRequest.Builder(FirebaseDBWorker.class, 15, TimeUnit.MINUTES)
+                        .build();
+        WorkManager.getInstance(this).enqueueUniquePeriodicWork("FirebaseDBWork", ExistingPeriodicWorkPolicy.KEEP, firebaseDBWorkRequest);
 
         btnApprovedIdeas.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -126,6 +126,10 @@
     <string name="strEditProfile">Profil bearbeiten</string>
     <string name="strPasswordValid">Fehler: Muss ein gültiges Passwort haben.</string>
     <string name="strAddUsers">Benutzer hinzufügen</string>
+    <string name="FirebaseDB">FirebaseDB</string>
+    <string name="FirebaseDBDescription">Benachrichtigungskanal für FirebaseDB</string>
+    <string name="NewIdea">Eine neue Idee wurde veröffentlicht</string>
+    <string name="NewIdeaMessage">%d Ideen wurden veröffentlicht</string>
     <string-array name="arAccountType">
         <item>Mitarbeiterin</item>
         <item>Gutachterin</item>
