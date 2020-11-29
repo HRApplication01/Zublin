@@ -3108,7 +3108,7 @@
 			color: #aaa;
 			font-size: 1.5em;
 			margin-bottom: 1.75em;
-			text-transform: none;
+			text-weight: bold;
 		}
 
 		@media screen and (max-width: 1280px) {
