@@ -3162,13 +3162,13 @@
 /* Main */
 
 	#main {
-		padding-top: 4em;
+		padding-top: 0em;
 	}
 
 		@media screen and (max-width: 736px) {
 
 			#main {
-				padding-top: 2em;
+				padding-top: 0em;
 			}
 
 		}
